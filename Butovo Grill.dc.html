@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth;scroll-padding-top:140px}
+body{margin:0;background:#14110e;color:#f1e9dc;font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#e3a64a;text-decoration:none}
+a:hover{color:#f1e9dc}
+input,select,button,textarea{font-family:inherit}
+@keyframes heroImgIn{from{opacity:0;transform:scale(1.08)}to{opacity:1;transform:scale(1)}}
+@keyframes heroWordIn{from{opacity:0;letter-spacing:0.2em}to{opacity:1;letter-spacing:-0.02em}}
+</style>
+</helmet>
+<div style="min-height:100vh;background:#14110e;color:#f1e9dc">
+
+<header style="position:sticky;top:0;z-index:20;background:rgba(20,17,14,0.94);backdrop-filter:blur(10px);border-bottom:1px solid #2b251e">
+  <div style="max-width:1240px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px">
+    <a href="#top" style="display:flex;align-items:center;gap:12px;color:#f1e9dc">
+      <img src="https://static.tildacdn.com/tild3538-3865-4632-b237-366265306534/Polish_20230418_1547.png" alt="Butovo Grill" style="height:44px;width:auto;display:block">
+      <span style="display:flex;flex-direction:column;line-height:1.05">
+        <span style="font-size:11px;letter-spacing:0.22em;color:#e3a64a;font-weight:600">ЧАЙХОНА</span>
+        <span style="font-family:'Cormorant',serif;font-size:22px;font-weight:600;letter-spacing:0.02em">Butovo Grill 1958</span>
+      </span>
+    </a>
+    <div style="display:flex;align-items:center;gap:20px">
+      <button onClick="{{ openNav }}" style="height:46px;padding:0 10px 0 22px;border:1px solid #4a4035;border-radius:999px;background:transparent;color:#f1e9dc;font-size:13px;letter-spacing:0.18em;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:14px" style-hover="border-color:#e3a64a">
+        МЕНЮ
+        <span style="width:28px;height:28px;border-radius:50%;background:#e3a64a;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px">
+          <span style="width:12px;height:1.5px;background:#14110e;display:block"></span>
+          <span style="width:12px;height:1.5px;background:#14110e;display:block"></span>
+        </span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<sc-if value="{{ navOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;inset:0;z-index:80;background:#14110e;overflow-y:auto;display:flex;flex-direction:column">
+    <div style="max-width:1240px;width:100%;margin:0 auto;padding:14px 24px;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;min-height:73px">
+      <span style="font-family:'Cormorant',serif;font-size:22px;font-weight:600">Butovo Grill 1958</span>
+      <button onClick="{{ closeNav }}" style="height:46px;padding:0 10px 0 22px;border:1px solid #4a4035;border-radius:999px;background:transparent;color:#f1e9dc;font-size:13px;letter-spacing:0.18em;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:14px" style-hover="border-color:#e3a64a">
+        ЗАКРЫТЬ
+        <span style="width:28px;height:28px;border-radius:50%;background:#e3a64a;color:#14110e;display:flex;align-items:center;justify-content:center;font-size:14px">✕</span>
+      </button>
+    </div>
+    <div style="flex:1;max-width:1240px;width:100%;margin:0 auto;padding:40px 24px 48px;box-sizing:border-box;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:56px;align-items:center">
+      <nav style="display:flex;flex-direction:column">
+        <sc-for list="{{ navLinks }}" as="n" hint-placeholder-count="5">
+          <a href="{{ n.href }}" onClick="{{ closeNav }}" style="display:flex;align-items:baseline;gap:24px;padding:10px 0;border-bottom:1px solid #2b251e;color:#f1e9dc" style-hover="color:#e3a64a">
+            <span style="font-size:13px;letter-spacing:0.12em;color:#8b8071;width:28px">{{ n.num }}</span>
+            <span style="font-family:'Cormorant',serif;font-size:clamp(44px,6.5vw,88px);font-weight:500;line-height:1;letter-spacing:-0.01em">{{ n.label }}</span>
+          </a>
+        </sc-for>
+      </nav>
+      <div style="display:flex;flex-direction:column;gap:28px">
+        <div style="aspect-ratio:4/3;border-radius:220px 220px 6px 6px;overflow:hidden;border:1px solid #2b251e">
+          <img src="assets/plov-hero.png" alt="Плов" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(1.25)">
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:20px;font-size:14px;line-height:1.6;color:#c8bead">
+          <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:11px;letter-spacing:0.18em;color:#e3a64a">БАРТЕНЕВСКАЯ, 14</span><span>+7 999 111-19-58</span></div>
+          <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:11px;letter-spacing:0.18em;color:#e3a64a">АКАДЕМИКА ГЛУШКО, 15</span><span>+7 999 990-19-58</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</sc-if>
+
+<section id="top" style="position:relative;min-height:calc(100vh - 73px);display:flex;flex-direction:column;overflow:hidden;background:#14110e">
+  <div style="max-width:1240px;width:100%;margin:0 auto;padding:28px 24px 0;box-sizing:border-box;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;letter-spacing:0.18em;color:#a89d8c">
+    <span>ЧАЙХОНА · ЮЖНОЕ БУТОВО</span>
+    <span>{{ heroCounter }}</span>
+  </div>
+  <div style="position:relative;flex:1;min-height:460px;display:flex;align-items:center;justify-content:center;padding:24px 0 72px">
+    {{ heroWord }}
+    <div style="position:relative;z-index:2;width:min(60vw,340px);aspect-ratio:4/5;border-radius:999px 999px 8px 8px;overflow:hidden;border:1px solid #3a3229;background:#211c17;box-shadow:0 40px 80px rgba(0,0,0,0.5)">
+      {{ heroImg }}
+    </div>
+  </div>
+  <div style="max-width:1240px;width:100%;margin:0 auto;padding:0 24px 36px;box-sizing:border-box;display:flex;justify-content:space-between;align-items:flex-end;gap:28px;flex-wrap:wrap;position:relative;z-index:3">
+    <div style="display:flex;flex-direction:column;gap:18px;max-width:420px">
+      <h1 style="margin:0;font-family:'Cormorant',serif;font-weight:500;font-size:clamp(30px,3.4vw,44px);line-height:1.05;text-wrap:balance">Плов, мангал и <span style="font-style:italic;color:#e3a64a">долгий чай</span> — с 9 утра до часу ночи</h1>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a href="#menu" style="padding:14px 26px;background:#e3a64a;color:#14110e;font-weight:700;font-size:14px;border-radius:999px" style-hover="background:#f1e9dc;color:#14110e">Заказать онлайн</a>
+        <a href="#booking" style="padding:14px 26px;border:1px solid #4a4035;color:#f1e9dc;font-size:14px;font-weight:500;border-radius:999px" style-hover="border-color:#f1e9dc;color:#f1e9dc">Забронировать стол</a>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-end;min-width:240px">
+      <div style="display:flex;align-items:center;gap:16px">
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px">
+          <span style="font-size:15px;font-weight:600">{{ heroDish }}</span>
+          <span style="font-size:13px;color:#a89d8c">{{ heroMeta }}</span>
+        </div>
+        <button onClick="{{ heroAdd }}" style="height:46px;padding:0 20px;border:1px solid #e3a64a;border-radius:999px;background:transparent;color:#e3a64a;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap" style-hover="background:#e3a64a;color:#14110e">{{ heroAddLabel }}</button>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <button onClick="{{ heroPrev }}" aria-label="Назад" style="width:44px;height:44px;border-radius:50%;border:1px solid #4a4035;background:transparent;color:#f1e9dc;font-size:18px;cursor:pointer" style-hover="border-color:#e3a64a;color:#e3a64a">←</button>
+      <div style="display:flex;gap:6px">
+        <sc-for list="{{ heroDots }}" as="d" hint-placeholder-count="4">
+          <button onClick="{{ d.go }}" aria-label="Слайд" style="width:44px;height:20px;padding:0;border:none;background:transparent;cursor:pointer;display:flex;align-items:center">
+            <span style="width:100%;height:2px;background:{{ d.color }};display:block"></span>
+          </button>
+        </sc-for>
+      </div>
+        <button onClick="{{ heroNext }}" aria-label="Вперёд" style="width:44px;height:44px;border-radius:50%;border:1px solid #4a4035;background:transparent;color:#f1e9dc;font-size:18px;cursor:pointer" style-hover="border-color:#e3a64a;color:#e3a64a">→</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="menu" style="background:#1a1612;border-top:1px solid #2b251e">
+  <div style="max-width:1240px;margin:0 auto;padding:96px 24px 40px;display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <span style="font-size:12px;letter-spacing:0.22em;color:#e3a64a;font-weight:600">МЕНЮ</span>
+      <h2 style="margin:0;font-family:'Cormorant',serif;font-weight:500;font-size:clamp(40px,5vw,64px);line-height:1">Выбирайте и заказывайте</h2>
+    </div>
+    <input type="search" value="{{ query }}" onChange="{{ onQuery }}" placeholder="Найти блюдо: плов, манты, люля…" style="width:min(100%,360px);padding:14px 20px;background:#14110e;border:1px solid #3a3229;border-radius:999px;color:#f1e9dc;font-size:15px;box-sizing:border-box">
+  </div>
+  <div style="position:sticky;top:72px;z-index:15;background:rgba(26,22,18,0.96);backdrop-filter:blur(8px);border-top:1px solid #2b251e;border-bottom:1px solid #2b251e">
+    <div style="max-width:1240px;margin:0 auto;padding:12px 24px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none">
+      <sc-for list="{{ cats }}" as="c" hint-placeholder-count="10">
+        <a href="{{ c.href }}" style="flex-shrink:0;padding:9px 16px;border:1px solid #3a3229;border-radius:999px;font-size:13px;font-weight:500;color:#c8bead;white-space:nowrap" style-hover="border-color:#e3a64a;color:#f1e9dc">{{ c.title }}</a>
+      </sc-for>
+    </div>
+  </div>
+  <div style="max-width:1240px;margin:0 auto;padding:40px 24px 96px;display:flex;flex-direction:column;gap:64px">
+    <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
+      <p style="margin:0;font-size:16px;color:#a89d8c">Ничего не нашли. Попробуйте другое название.</p>
+    </sc-if>
+    <sc-for list="{{ cats }}" as="c" hint-placeholder-count="2">
+      <div id="{{ c.anchor }}" style="display:flex;flex-direction:column;gap:20px">
+        <div style="display:flex;align-items:baseline;gap:14px">
+          <h3 style="margin:0;font-family:'Cormorant',serif;font-weight:500;font-size:40px;line-height:1">{{ c.title }}</h3>
+          <span style="font-size:13px;color:#8b8071">{{ c.count }}</span>
+        </div>
+        <sc-for list="{{ c.pages }}" as="pg" hint-placeholder-count="1">
+          <sc-if value="{{ layoutCards }}" hint-placeholder-val="{{ false }}">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:20px;align-items:start">
+              <sc-if value="{{ showPhotos }}" hint-placeholder-val="{{ false }}">
+                <div style="border-radius:6px;overflow:hidden;background:#211c17;border:1px solid #2b251e">
+                  <img src="{{ pg.src }}" alt="Меню: {{ c.title }}" loading="lazy" style="width:100%;height:auto;display:block">
+                </div>
+              </sc-if>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <sc-for list="{{ pg.items }}" as="it" hint-placeholder-count="6">
+                  <div style="padding:16px 18px;background:#f4ede1;border:2px solid {{ it.border }};border-radius:6px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px 16px;align-items:center;color:#14110e">
+                    <div style="display:flex;flex-direction:column;gap:6px">
+                      <div style="font-family:'Cormorant',serif;font-size:24px;font-weight:700;line-height:1.1;color:#14110e;text-wrap:balance">{{ it.name }}</div>
+                      <sc-if value="{{ it.hasDesc }}" hint-placeholder-val="{{ false }}">
+                        <button onClick="{{ it.toggleDesc }}" style="align-self:flex-start;padding:0;border:none;background:none;color:#8a5a1c;font-size:13px;font-weight:600;cursor:pointer;text-decoration:underline;text-underline-offset:3px">{{ it.descLabel }}</button>
+                      </sc-if>
+                      <sc-if value="{{ it.descOpen }}" hint-placeholder-val="{{ false }}">
+                        <div style="font-size:14px;line-height:1.5;color:#4f4538;text-wrap:pretty">{{ it.desc }}</div>
+                      </sc-if>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:16px">
+                      <div style="display:flex;flex-direction:column;gap:2px">
+                        <span style="font-size:18px;font-weight:700;color:#14110e;white-space:nowrap">{{ it.priceLabel }}</span>
+                        <span style="font-size:13px;color:#6b5f50;white-space:nowrap">{{ it.weight }}</span>
+                      </div>
+                      <sc-if value="{{ it.notInCart }}" hint-placeholder-val="{{ true }}">
+                        <button onClick="{{ it.inc }}" style="height:44px;padding:0 18px;white-space:nowrap;flex-shrink:0;border:none;border-radius:999px;background:#14110e;color:#f1e9dc;font-size:14px;font-weight:700;cursor:pointer" style-hover="background:#e3a64a;color:#14110e">+ В заказ</button>
+                      </sc-if>
+                      <sc-if value="{{ it.inCart }}" hint-placeholder-val="{{ false }}">
+                        <div style="height:44px;flex-shrink:0;display:flex;align-items:center;background:#e3a64a;border-radius:999px;color:#14110e">
+                          <button onClick="{{ it.dec }}" style="width:44px;height:44px;border:none;background:transparent;color:#14110e;font-size:20px;font-weight:700;cursor:pointer">−</button>
+                          <span style="min-width:20px;text-align:center;font-weight:700;font-size:15px">{{ it.qty }}</span>
+                          <button onClick="{{ it.inc }}" style="width:44px;height:44px;border:none;background:transparent;color:#14110e;font-size:20px;font-weight:700;cursor:pointer">+</button>
+                        </div>
+                      </sc-if>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ layoutList }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;flex-direction:column;gap:20px">
+              <sc-if value="{{ showPhotos }}" hint-placeholder-val="{{ false }}">
+              <div style="border-radius:6px;overflow:hidden;background:#211c17;border:1px solid #2b251e">
+                <img src="{{ pg.src }}" alt="Меню: {{ c.title }}" loading="lazy" style="width:100%;height:auto;display:block">
+              </div>
+              </sc-if>
+              <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,440px),1fr));column-gap:48px">
+                <sc-for list="{{ pg.items }}" as="it" hint-placeholder-count="6">
+                  <div style="min-height:60px;padding:8px 0;border-bottom:1px solid #2b251e;display:flex;align-items:center;gap:14px">
+                    <div style="flex:1;min-width:0;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap">
+                      <span style="font-size:16px;font-weight:600;color:#f1e9dc">{{ it.name }}</span>
+                      <span style="font-size:12px;color:#8b8071;white-space:nowrap">{{ it.weight }}</span>
+                    </div>
+                    <span style="font-size:16px;font-weight:700;color:#e3a64a;white-space:nowrap">{{ it.priceLabel }}</span>
+                    <sc-if value="{{ it.notInCart }}" hint-placeholder-val="{{ true }}">
+                      <button onClick="{{ it.inc }}" aria-label="Добавить" style="width:40px;height:40px;flex-shrink:0;border:1px solid #4a4035;border-radius:50%;background:transparent;color:#f1e9dc;font-size:20px;line-height:1;cursor:pointer" style-hover="background:#e3a64a;border-color:#e3a64a;color:#14110e">+</button>
+                    </sc-if>
+                    <sc-if value="{{ it.inCart }}" hint-placeholder-val="{{ false }}">
+                      <div style="height:40px;flex-shrink:0;display:flex;align-items:center;background:#e3a64a;border-radius:999px;color:#14110e">
+                        <button onClick="{{ it.dec }}" style="width:36px;height:40px;border:none;background:transparent;color:#14110e;font-size:18px;font-weight:700;cursor:pointer">−</button>
+                        <span style="min-width:16px;text-align:center;font-weight:700;font-size:14px">{{ it.qty }}</span>
+                        <button onClick="{{ it.inc }}" style="width:36px;height:40px;border:none;background:transparent;color:#14110e;font-size:18px;font-weight:700;cursor:pointer">+</button>
+                      </div>
+                    </sc-if>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ layoutChips }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:16px">
+              <sc-if value="{{ showPhotos }}" hint-placeholder-val="{{ false }}">
+              <div style="border-radius:6px;overflow:hidden;background:#211c17;border:1px solid #2b251e">
+                <img src="{{ pg.src }}" alt="Меню: {{ c.title }}" loading="lazy" style="width:100%;height:auto;display:block">
+              </div>
+              </sc-if>
+              <div style="display:flex;flex-wrap:wrap;gap:8px">
+                <sc-for list="{{ pg.items }}" as="it" hint-placeholder-count="6">
+                  <div style="display:flex;align-items:center;border-radius:999px;border:1px solid {{ it.chipBorder }};background:{{ it.chipBg }};color:{{ it.chipColor }}">
+                    <sc-if value="{{ it.inCart }}" hint-placeholder-val="{{ false }}">
+                      <button onClick="{{ it.dec }}" style="width:40px;height:44px;border:none;background:transparent;color:#14110e;font-size:18px;font-weight:700;cursor:pointer">−</button>
+                    </sc-if>
+                    <button onClick="{{ it.inc }}" style="height:44px;padding:0 18px;border:none;background:transparent;color:inherit;font-size:14px;cursor:pointer;display:flex;gap:8px;align-items:center;white-space:nowrap">
+                      <span style="font-weight:600">{{ it.name }}</span>
+                      <span style="opacity:0.75">{{ it.chipRight }}</span>
+                    </button>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </sc-if>
+        </sc-for>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section id="delivery" style="border-top:1px solid #2b251e">
+  <div style="max-width:1240px;margin:0 auto;padding:96px 24px;display:flex;flex-direction:column;gap:48px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:40px;align-items:end">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:12px;letter-spacing:0.22em;color:#e3a64a;font-weight:600">ДОСТАВКА</span>
+        <h2 style="margin:0;font-family:'Cormorant',serif;font-weight:500;font-size:clamp(40px,5vw,64px);line-height:1;text-wrap:balance">Плов и манты — <span style="font-style:italic;color:#e3a64a">к вам домой</span></h2>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:20px;align-items:flex-start">
+        <p style="margin:0;font-size:16px;line-height:1.7;color:#c8bead;max-width:460px">Привезём горячим из ближайшего ресторана. Можно забрать и самому — заказ будет готов к вашему приходу.</p>
+        <a href="#menu" style="padding:16px 30px;background:#e3a64a;color:#14110e;font-weight:700;font-size:15px;border-radius:999px" style-hover="background:#f1e9dc;color:#14110e">Перейти к меню</a>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:20px">
+      <div style="padding:28px;border:1px solid #2b251e;border-radius:6px;display:flex;flex-direction:column;gap:12px">
+        <span style="font-family:'Cormorant',serif;font-size:44px;line-height:1;color:#e3a64a">01</span>
+        <span style="font-size:17px;font-weight:600">Выберите блюда</span>
+        <span style="font-size:14px;line-height:1.6;color:#a89d8c">Нажмите «+ В заказ» у нужных позиций в меню.</span>
+      </div>
+      <div style="padding:28px;border:1px solid #2b251e;border-radius:6px;display:flex;flex-direction:column;gap:12px">
+        <span style="font-family:'Cormorant',serif;font-size:44px;line-height:1;color:#e3a64a">02</span>
+        <span style="font-size:17px;font-weight:600">Укажите адрес</span>
+        <span style="font-size:14px;line-height:1.6;color:#a89d8c">Выберите «Доставка» и оставьте телефон.</span>
+      </div>
+      <div style="padding:28px;border:1px solid #2b251e;border-radius:6px;display:flex;flex-direction:column;gap:12px">
+        <span style="font-family:'Cormorant',serif;font-size:44px;line-height:1;color:#e3a64a">03</span>
+        <span style="font-size:17px;font-weight:600">Подтвердим звонком</span>
+        <span style="font-size:14px;line-height:1.6;color:#a89d8c">Оператор уточнит заказ и время доставки.</span>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:1px;background:#2b251e;border:1px solid #2b251e;border-radius:6px;overflow:hidden">
+      <div style="background:#14110e;padding:22px 24px;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;letter-spacing:0.08em;color:#a89d8c">ЗОНА</span><span style="font-size:17px">Южное Бутово</span></div>
+      <div style="background:#14110e;padding:22px 24px;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;letter-spacing:0.08em;color:#a89d8c">ВРЕМЯ</span><span style="font-size:17px">60–90 минут</span></div>
+      <div style="background:#14110e;padding:22px 24px;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;letter-spacing:0.08em;color:#a89d8c">МИНИМАЛЬНЫЙ ЗАКАЗ</span><span style="font-size:17px">1 000 ₽</span></div>
+      <div style="background:#14110e;padding:22px 24px;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;letter-spacing:0.08em;color:#a89d8c">ПРИНИМАЕМ ЗАКАЗЫ</span><span style="font-size:17px">09:00 – 00:30</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="gift" style="border-top:1px solid #2b251e;background:#14110e">
+  <div style="max-width:1240px;margin:0 auto;padding:96px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:56px;align-items:start">
+    <div style="display:flex;flex-direction:column;gap:28px">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:12px;letter-spacing:0.22em;color:#e3a64a;font-weight:600">ПОДАРОК</span>
+        <h2 style="margin:0;font-family:'Cormorant',serif;font-weight:500;font-size:clamp(40px,5vw,64px);line-height:1;text-wrap:balance">Подарите <span style="font-style:italic;color:#e3a64a">ужин</span> близким</h2>
+        <p style="margin:0;font-size:16px;line-height:1.7;color:#c8bead;max-width:440px">Оплатите стол или сертификат здесь — получатель придёт в любой день и просто назовёт код.</p>
+      </div>
+      <div style="aspect-ratio:1.6/1;border-radius:14px;padding:28px;box-sizing:border-box;background:#e3a64a;color:#14110e;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 30px 60px rgba(0,0,0,0.45)">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px">
+          <span style="font-size:11px;letter-spacing:0.22em;font-weight:700">ПОДАРОЧНЫЙ УЖИН</span>
+          <span style="font-family:'Cormorant',serif;font-size:20px;font-weight:600">Butovo Grill 1958</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <span style="font-size:14px;font-weight:600">Для: {{ giftTo }}</span>
+          <span style="font-family:'Cormorant',serif;font-size:clamp(36px,4.4vw,56px);font-weight:600;line-height:1">{{ giftTitle }}</span>
+          <span style="font-size:14px;line-height:1.4;font-style:italic">{{ giftMsg }}</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;gap:16px;font-size:12px;letter-spacing:0.12em;font-weight:700">
+          <span>{{ giftBranch }}</span>
+          <span>{{ giftCode }}</span>
+        </div>
+      </div>
+    </div>
+    <sc-if value="{{ giftNotPaid }}" hint-placeholder-val="{{ true }}">
+      <form onSubmit="{{ payGift }}" style="display:flex;flex-direction:column;gap:22px">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <span style="font-size:12px;letter-spacing:0.08em;color:#a89d8c">ЧТО ПОДАРИТЬ</span>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <sc-for list="{{ giftOpts }}" as="g" hint-placeholder-count="4">
+              <button type="button" onClick="{{ g.select }}" style="padding:16px 18px;border-radius:8px;border:1px solid {{ g.border }};background:{{ g.bg }};color:#f1e9dc;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;text-align:left">
+                <span style="display:flex;flex-direction:column;gap:3px">
+                  <span style="font-size:16px;font-weight:600">{{ g.title }}</span>
+                  <span style="font-size:13px;color:#a89d8c">{{ g.note }}</span>
+                </span>
+                <span style="font-size:16px;font-weight:700;color:#e3a64a;white-space:nowrap">{{ g.priceLabel }}</span>
+              </button>
+            </sc-for>
+          </div>
+        </div>
+        <sc-if value="{{ giftCustom }}" hint-placeholder-val="{{ false }}">
+          <label style="display:flex;flex-direction:column;gap:8px;font-size:12px;letter-spacing:0.08em;color:#a89d8c">СУММА СЕРТИФИКАТА, ₽
+            <input type="number" min="1000" step="500" value="{{ gift.amount }}" onChange="{{ onGiftAmount }}" style="padding:14px;background:#1a1612;border:1px solid #3a3229;border-radius:6px;color:#f1e9dc;font-size:15px">
+          </label>
+        </sc-if>
+        <label style="display:flex;flex-direction:column;gap:8px;font-size:12px;letter-spacing:0.08em;color:#a89d8c">РЕСТОРАН
+          <select value="{{ gift.branch }}" onChange="{{ onGiftBranch }}" style="padding:14px;background:#1a1612;border:1px solid #3a3229;border-radius:6px;color:#f1e9dc;font-size:15px">
+            <sc-for list="{{ branchSelect }}" as="b" hint-placeholder-count="2"><option value="{{ b.v }}">{{ b.label }}</option></sc-for>
+          </select>
+        </label>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:16px">
+          <label style="display:flex;flex-direction:column;gap:8px;font-size:12px;letter-spacing:0.08em;color:#a89d8c">КОМУ
+            <input type="text" required="required" placeholder="Имя получателя" value="{{ gift.to }}" onChange="{{ onGiftTo }}" style="padding:14px;background:#1a1612;border:1px solid #3a3229;border-radius:6px;color:#f1e9dc;font-size:15px">
+          </label>
+          <label style="display:flex;flex-direction:column;gap:8px;font-size:12px;letter-spacing:0.08em;color:#a89d8c">ОТ КОГО
+            <input type="text" required="required" placeholder="Ваше имя" value="{{ gift.from }}" onChange="{{ onGiftFrom }}" style="padding:14px;background:#1a1612;border:1px solid #3a3229;border-radius:6px;color:#f1e9dc;font-size:15px">
+          </label>
+        </div>
+        <label style="display:flex;flex-direction:column;gap:8px;font-size:12px;letter-spacing:0.08em;color:#a89d8c">ПОЖЕЛАНИЕ
+          <textarea rows="2" maxlength="90" placeholder="С днём рождения! Приятного вечера" value="{{ gift.msg }}" onChange="{{ onGiftMsg }}" style="padding:14px;background:#1a1612;border:1px solid #3a3229;border-radius:6px;color:#f1e9dc;font-size:15px;resize:vertical"></textarea>
+        </label>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:16px">
+          <label style="display:flex;flex-direction:column;gap:8px;font-size:12px;letter-spacing:0.08em;color:#a89d8c">ТЕЛЕФОН ПОЛУЧАТЕЛЯ
+            <input type="tel" required="required" placeholder="Пришлём код по SMS" value="{{ gift.phone }}" onChange="{{ onGiftPhone }}" style="padding:14px;background:#1a1612;border:1px solid #3a3229;border-radius:6px;color:#f1e9dc;font-size:15px">
+          </label>
+          <label style="display:flex;flex-direction:column;gap:8px;font-size:12px;letter-spacing:0.08em;color:#a89d8c">КОГДА ОТПРАВИТЬ
+            <input type="date" value="{{ gift.date }}" onChange="{{ onGiftDate }}" style="padding:14px;background:#1a1612;border:1px solid #3a3229;border-radius:6px;color:#f1e9dc;font-size:15px;color-scheme:dark">
+          </label>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;padding:18px;border:1px solid #3a3229;border-radius:8px">
+          <span style="font-size:12px;letter-spacing:0.08em;color:#a89d8c">ОПЛАТА</span>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <sc-for list="{{ payOpts }}" as="p" hint-placeholder-count="2">
+              <button type="button" onClick="{{ p.select }}" style="padding:12px;border-radius:6px;border:1px solid {{ p.border }};background:{{ p.bg }};color:#f1e9dc;font-size:14px;font-weight:600;cursor:pointer">{{ p.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <button type="submit" style="padding:18px;background:#e3a64a;color:#14110e;border:none;border-radius:999px;font-weight:700;font-size:16px;cursor:pointer" style-hover="background:#f1e9dc">Оплатить {{ giftPrice }}</button>
+        <p style="margin:0;font-size:13px;line-height:1.5;color:#8b8071">Сертификат действует 6 месяцев. Если ужин окажется дешевле — остаток сохранится на коде.</p>
+      </form>
+    </sc-if>
+    <sc-if value="{{ giftPaid }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:36px;border:1px solid #3a3229;border-radius:8px;display:flex;flex-direction:column;gap:16px;align-items:flex-start">
+        <span style="font-size:12px;letter-spacing:0.22em;color:#e3a64a;font-weight:600">ОПЛАЧЕНО</span>
+        <div style="font-family:'Cormorant',serif;font-size:38px;line-height:1.1">Подарок готов!</div>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#c8bead">{{ giftSummary }}</p>
+        <button onClick="{{ resetGift }}" style="padding:12px 22px;border:1px solid #4a4035;background:transparent;color:#f1e9dc;border-radius:999px;cursor:pointer">Подарить ещё</button>
+      </div>
+    </sc-if>
+  </div>
+</section>
+
+<section id="reviews" style="background:#1a1612;border-top:1px solid #2b251e">
+  <div style="max-width:1240px;margin:0 auto;padding:96px 24px;display:flex;flex-direction:column;gap:40px">
+    <div style="display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:12px;letter-spacing:0.22em;color:#e3a64a;font-weight:600">ОТЗЫВЫ</span>
+        <h2 style="margin:0;font-family:'Cormorant',serif;font-weight:500;font-size:clamp(40px,5vw,64px);line-height:1">Что говорят гости</h2>
+      </div>
+      <a href="https://yandex.com/maps/org/butovo_grill/6865667887/reviews/" target="_blank" style="display:flex;align-items:center;gap:16px;padding:14px 22px;border:1px solid #3a3229;border-radius:999px;color:#f1e9dc" style-hover="border-color:#e3a64a;color:#f1e9dc">
+        <span style="font-family:'Cormorant',serif;font-size:36px;line-height:1;color:#e3a64a">4,4</span>
+        <span style="display:flex;flex-direction:column;font-size:13px;line-height:1.35;color:#c8bead"><span>★★★★☆ Яндекс Карты</span><span>981 оценка · все отзывы →</span></span>
+      </a>
+    </div>
+    <div style="columns:3 300px;column-gap:20px">
+      <sc-for list="{{ reviews }}" as="r" hint-placeholder-count="6">
+        <figure style="margin:0 0 20px;break-inside:avoid;padding:28px;background:#14110e;border:1px solid #2b251e;border-radius:6px;display:flex;flex-direction:column;gap:18px">
+          <span style="font-size:14px;letter-spacing:0.12em;color:#e3a64a">★★★★★</span>
+          <blockquote style="margin:0;font-family:'Cormorant',serif;font-size:22px;line-height:1.4;color:#f1e9dc;text-wrap:pretty">«{{ r.text }}»</blockquote>
+          <figcaption style="display:flex;justify-content:space-between;gap:12px;font-size:13px;color:#a89d8c"><span style="color:#f1e9dc;font-weight:600">{{ r.name }}</span><span>{{ r.date }}</span></figcaption>
+        </figure>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="about" style="border-top:1px solid #2b251e">
+  <div style="max-width:1240px;margin:0 auto;padding:96px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:56px">
+    <h2 style="margin:0;font-family:'Cormorant',serif;font-weight:500;font-size:clamp(40px,5vw,64px);line-height:1;text-wrap:balance">Место, куда приходят <span style="font-style:italic;color:#e3a64a">надолго</span></h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:32px">
+      <div style="display:flex;flex-direction:column;gap:10px;padding-top:18px;border-top:1px solid #3a3229">
+        <div style="font-family:'Cormorant',serif;font-size:28px">Мангал</div>
+        <p style="margin:0;font-size:15px;line-height:1.65;color:#a89d8c;text-wrap:pretty">Шашлык, люля и овощи на живых углях.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;padding-top:18px;border-top:1px solid #3a3229">
+        <div style="font-family:'Cormorant',serif;font-size:28px">Восточная кухня</div>
+        <p style="margin:0;font-size:15px;line-height:1.65;color:#a89d8c;text-wrap:pretty">Плов, лагман, самса и выпечка из тандыра.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;padding-top:18px;border-top:1px solid #3a3229">
+        <div style="font-family:'Cormorant',serif;font-size:28px">С 9 утра до часу ночи</div>
+        <p style="margin:0;font-size:15px;line-height:1.65;color:#a89d8c;text-wrap:pretty">Завтраки, бизнес-обеды, семейные ужины и праздники.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="booking" style="background:#1a1612;border-top:1px solid #2b251e">
+  <div style="max-width:1240px;margin:0 auto;padding:96px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:56px">
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <span style="font-size:12px;letter-spacing:0.22em;color:#e3a64a;font-weight:600">БРОНИРОВАНИЕ</span>
+      <h2 style="margin:0;font-family:'Cormorant',serif;font-weight:500;font-size:clamp(40px,5vw,64px);line-height:1">Оставьте заявку — перезвоним</h2>
+      <p style="margin:0;font-size:16px;line-height:1.7;color:#c8bead;max-width:420px">Для банкетов и больших компаний лучше позвонить в нужный ресторан напрямую.</p>
+    </div>
+    <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+      <form onSubmit="{{ submit }}" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:16px">
+        <div style="grid-column:1 / -1;display:flex;flex-direction:column;gap:8px">
+          <span style="font-size:12px;letter-spacing:0.08em;color:#a89d8c">РЕСТОРАН</span>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:10px">
+            <sc-for list="{{ branchOpts }}" as="b" hint-placeholder-count="2">
+              <button type="button" onClick="{{ b.select }}" style="padding:14px 16px;border-radius:6px;border:1px solid {{ b.border }};background:{{ b.bg }};color:#f1e9dc;font-size:15px;cursor:pointer;text-align:left">{{ b.short }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <label style="display:flex;flex-direction:column;gap:8px;font-size:12px;letter-spacing:0.08em;color:#a89d8c">ДАТА
+          <input type="date" required="required" value="{{ form.date }}" onChange="{{ onDate }}" style="padding:14px;background:#14110e;border:1px solid #3a3229;border-radius:6px;color:#f1e9dc;font-size:15px;color-scheme:dark">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:8px;font-size:12px;letter-spacing:0.08em;color:#a89d8c">ВРЕМЯ
+          <select value="{{ form.time }}" onChange="{{ onTime }}" style="padding:14px;background:#14110e;border:1px solid #3a3229;border-radius:6px;color:#f1e9dc;font-size:15px">
+            <sc-for list="{{ times }}" as="tm" hint-placeholder-count="6"><option value="{{ tm }}">{{ tm }}</option></sc-for>
+          </select>
+        </label>
+        <label style="display:flex;flex-direction:column;gap:8px;font-size:12px;letter-spacing:0.08em;color:#a89d8c">ГОСТЕЙ
+          <select value="{{ form.guests }}" onChange="{{ onGuests }}" style="padding:14px;background:#14110e;border:1px solid #3a3229;border-radius:6px;color:#f1e9dc;font-size:15px">
+            <sc-for list="{{ guestOpts }}" as="g" hint-placeholder-count="8"><option value="{{ g }}">{{ g }}</option></sc-for>
+          </select>
+        </label>
+        <label style="display:flex;flex-direction:column;gap:8px;font-size:12px;letter-spacing:0.08em;color:#a89d8c">ИМЯ
+          <input type="text" required="required" placeholder="Анна" value="{{ form.name }}" onChange="{{ onName }}" style="padding:14px;background:#14110e;border:1px solid #3a3229;border-radius:6px;color:#f1e9dc;font-size:15px">
+        </label>
+        <label style="grid-column:1 / -1;display:flex;flex-direction:column;gap:8px;font-size:12px;letter-spacing:0.08em;color:#a89d8c">ТЕЛЕФОН
+          <input type="tel" required="required" placeholder="+7 ___ ___-__-__" value="{{ form.phone }}" onChange="{{ onPhone }}" style="padding:14px;background:#14110e;border:1px solid #3a3229;border-radius:6px;color:#f1e9dc;font-size:15px">
+        </label>
+        <button type="submit" style="grid-column:1 / -1;padding:18px;background:#e3a64a;color:#14110e;border:none;border-radius:999px;font-weight:700;font-size:15px;cursor:pointer" style-hover="background:#f1e9dc">Отправить заявку</button>
+      </form>
+    </sc-if>
+    <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:40px;border:1px solid #3a3229;border-radius:6px;display:flex;flex-direction:column;gap:16px;align-items:flex-start;align-self:start">
+        <div style="font-family:'Cormorant',serif;font-size:38px">Спасибо, {{ form.name }}!</div>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#c8bead">{{ summary }}</p>
+        <button onClick="{{ reset }}" style="padding:12px 22px;border:1px solid #4a4035;background:transparent;color:#f1e9dc;border-radius:999px;cursor:pointer">Новая заявка</button>
+      </div>
+    </sc-if>
+  </div>
+</section>
+
+<footer style="border-top:1px solid #2b251e">
+  <div style="max-width:1240px;margin:0 auto;padding:48px 24px 120px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;font-size:14px;color:#a89d8c">
+    <span style="font-family:'Cormorant',serif;font-size:24px;color:#f1e9dc">Butovo Grill 1958</span>
+    <span>Бартеневская, 14 · +7 999 111-19-58</span>
+    <span>Академика Глушко, 15 · +7 999 990-19-58</span>
+  </div>
+</footer>
+
+<sc-if value="{{ hasCart }}" hint-placeholder-val="{{ false }}">
+  <button onClick="{{ openOrder }}" style="position:fixed;right:20px;bottom:20px;z-index:30;padding:10px 10px 10px 24px;border:none;border-radius:999px;background:#e3a64a;color:#14110e;font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,0.45);display:flex;gap:14px;align-items:center" style-hover="background:#f1e9dc">
+    <span>Оформить заказ</span>
+    <span style="padding:8px 14px;border-radius:999px;background:#14110e;color:#e3a64a;font-size:14px">{{ cartCount }} · {{ cartTotal }}</span>
+  </button>
+</sc-if>
+
+<sc-if value="{{ orderOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeOrder }}" style="position:fixed;inset:0;z-index:60;background:rgba(10,8,6,0.8);display:flex;justify-content:flex-end">
+    <div onClick="{{ stop }}" style="width:min(100%,500px);height:100%;overflow-y:auto;background:#1a1612;border-left:1px solid #2b251e;box-sizing:border-box;padding:28px;display:flex;flex-direction:column;gap:24px">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:16px">
+        <h3 style="margin:0;font-family:'Cormorant',serif;font-weight:500;font-size:40px;line-height:1">Ваш заказ</h3>
+        <button onClick="{{ closeOrder }}" style="width:44px;height:44px;border-radius:50%;border:1px solid #4a4035;background:transparent;color:#f1e9dc;font-size:18px;cursor:pointer">✕</button>
+      </div>
+      <sc-if value="{{ orderNotSent }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-direction:column;gap:24px">
+          <sc-if value="{{ cartEmpty }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:0;font-size:15px;color:#a89d8c">Корзина пуста. Добавьте блюда из меню.</p>
+          </sc-if>
+          <div style="display:flex;flex-direction:column">
+            <sc-for list="{{ cartLines }}" as="l" hint-placeholder-count="2">
+              <div style="padding:14px 0;border-bottom:1px solid #2b251e;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px 16px;align-items:center">
+                <div style="display:flex;flex-direction:column;gap:2px">
+                  <span style="font-size:15px;font-weight:600;color:#f1e9dc">{{ l.name }}</span>
+                  <span style="font-size:12px;color:#8b8071">{{ l.weight }} · {{ l.priceLabel }}</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:12px">
+                  <div style="display:flex;align-items:center;border:1px solid #3a3229;border-radius:999px">
+                    <button onClick="{{ l.dec }}" style="width:36px;height:36px;border:none;background:transparent;color:#f1e9dc;font-size:18px;cursor:pointer">−</button>
+                    <span style="min-width:18px;text-align:center;font-weight:700;font-size:14px">{{ l.qty }}</span>
+                    <button onClick="{{ l.inc }}" style="width:36px;height:36px;border:none;background:transparent;color:#f1e9dc;font-size:18px;cursor:pointer">+</button>
+                  </div>
+                  <span style="min-width:72px;text-align:right;font-weight:700;font-size:15px">{{ l.sumLabel }}</span>
+                </div>
+              </div>
+            </sc-for>
+            <div style="padding-top:16px;display:flex;justify-content:space-between;align-items:baseline">
+              <span style="font-size:14px;color:#a89d8c">Итого</span>
+              <span style="font-family:'Cormorant',serif;font-size:34px;font-weight:600;color:#e3a64a">{{ cartTotal }}</span>
+            </div>
+          </div>
+          <form onSubmit="{{ submitOrder }}" style="display:flex;flex-direction:column;gap:16px">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:4px;border:1px solid #3a3229;border-radius:999px">
+              <sc-for list="{{ modeOpts }}" as="m" hint-placeholder-count="2">
+                <button type="button" onClick="{{ m.select }}" style="padding:11px;border:none;border-radius:999px;background:{{ m.bg }};color:{{ m.color }};font-size:14px;font-weight:600;cursor:pointer">{{ m.label }}</button>
+              </sc-for>
+            </div>
+            <label style="display:flex;flex-direction:column;gap:8px;font-size:12px;letter-spacing:0.08em;color:#a89d8c">РЕСТОРАН
+              <select value="{{ ord.branch }}" onChange="{{ onOrdBranch }}" style="padding:14px;background:#14110e;border:1px solid #3a3229;border-radius:6px;color:#f1e9dc;font-size:15px">
+                <sc-for list="{{ branchSelect }}" as="b" hint-placeholder-count="2"><option value="{{ b.v }}">{{ b.label }}</option></sc-for>
+              </select>
+            </label>
+            <sc-if value="{{ isDelivery }}" hint-placeholder-val="{{ false }}">
+              <label style="display:flex;flex-direction:column;gap:8px;font-size:12px;letter-spacing:0.08em;color:#a89d8c">АДРЕС ДОСТАВКИ
+                <input type="text" required="required" placeholder="Улица, дом, квартира" value="{{ ord.address }}" onChange="{{ onOrdAddress }}" style="padding:14px;background:#14110e;border:1px solid #3a3229;border-radius:6px;color:#f1e9dc;font-size:15px">
+              </label>
+            </sc-if>
+            <label style="display:flex;flex-direction:column;gap:8px;font-size:12px;letter-spacing:0.08em;color:#a89d8c">ИМЯ
+              <input type="text" required="required" placeholder="Анна" value="{{ ord.name }}" onChange="{{ onOrdName }}" style="padding:14px;background:#14110e;border:1px solid #3a3229;border-radius:6px;color:#f1e9dc;font-size:15px">
+            </label>
+            <label style="display:flex;flex-direction:column;gap:8px;font-size:12px;letter-spacing:0.08em;color:#a89d8c">ТЕЛЕФОН
+              <input type="tel" required="required" placeholder="+7 ___ ___-__-__" value="{{ ord.phone }}" onChange="{{ onOrdPhone }}" style="padding:14px;background:#14110e;border:1px solid #3a3229;border-radius:6px;color:#f1e9dc;font-size:15px">
+            </label>
+            <label style="display:flex;flex-direction:column;gap:8px;font-size:12px;letter-spacing:0.08em;color:#a89d8c">КОММЕНТАРИЙ
+              <textarea rows="2" placeholder="Например: без лука, приборы на 3 человек" value="{{ ord.comment }}" onChange="{{ onOrdComment }}" style="padding:14px;background:#14110e;border:1px solid #3a3229;border-radius:6px;color:#f1e9dc;font-size:15px;resize:vertical"></textarea>
+            </label>
+            <sc-if value="{{ belowMin }}" hint-placeholder-val="{{ false }}">
+              <p style="margin:0;font-size:13px;color:#e3a64a">Минимальная сумма доставки — 1 000 ₽. Добавьте ещё на {{ minLeft }}.</p>
+            </sc-if>
+            <button type="submit" disabled="{{ cantSubmit }}" style="padding:18px;background:#e3a64a;color:#14110e;border:none;border-radius:999px;font-weight:700;font-size:15px;cursor:pointer;opacity:{{ submitOpacity }}">Отправить заказ · {{ cartTotal }}</button>
+            <p style="margin:0;font-size:13px;line-height:1.5;color:#8b8071">Оператор перезвонит для подтверждения. Оплата при получении.</p>
+          </form>
+        </div>
+      </sc-if>
+      <sc-if value="{{ orderSent }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:16px;align-items:flex-start">
+          <div style="font-family:'Cormorant',serif;font-size:34px">Спасибо, {{ ord.name }}!</div>
+          <p style="margin:0;font-size:16px;line-height:1.6;color:#c8bead">{{ orderSummary }}</p>
+          <button onClick="{{ resetOrder }}" style="padding:12px 22px;border:1px solid #4a4035;background:transparent;color:#f1e9dc;border-radius:999px;cursor:pointer">Готово</button>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;menuLayout&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Список&quot;,&quot;Кнопки&quot;,&quot;Карточки&quot;],&quot;default&quot;:&quot;Список&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Меню&quot;},&quot;showCategoryPhotos&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Меню&quot;}}">
+const RAW = "1|Завтраки|Менемен турецкий|Омлет, помидоры, зелень||390\n1|Завтраки|Яичница из 2 яиц и сосиски|Две сосиски||390\n1|Завтраки|Яичница глазунья из 2 яиц|||290\n1|Завтраки|Каша рисовая на молоке||300 г|290\n1|Завтраки|Каша гречневая на молоке||300 г|290\n1|Завтраки|Каша овсяная на молоке||300 г|290\n2|Закуски|Ассорти сырная тарелка|Чанах, моцарелла, твёрдый и мягкий сыр|200 г|540\n2|Закуски|Сыр чанах||100 г|290\n2|Закуски|Колбасная тарелка 200 г|Ветчина говяжья, колбасы, казы, сыр, суджук|200 г|490\n2|Закуски|Колбасная тарелка 350 г|Ветчина говяжья, колбасы, казы, сыр, суджук|350 г|640\n2|Закуски|Казы||100 г|330\n2|Закуски|Долма||180 г|330\n3|Закуски|Эзме|Помидоры, сладкий перец, специи|150 г|310\n3|Закуски|Шакшука|Тушёные помидоры, перец, лук, чеснок|150 г|310\n3|Закуски|Ассорти мезе по-турецки|Помидоры, баклажаны, перец, чеснок|250 г|490\n3|Закуски|Катык||150 г|180\n3|Закуски|Ассорти солений, малое|Огурцы, помидоры, чеснок, капуста, черемша, перец, морковь|200 г|290\n3|Закуски|Ассорти солений, большое|Огурцы, помидоры, чеснок, капуста, черемша, перец, морковь|380 г|390\n3|Закуски|Хуммус|Кунжутная паста, нут, чеснок, специи|150 г|310\n3|Закуски|Сельдь по-мюнхенски|Сельдь, картофель, красный лук, горошек|180 г|390\n4|Салаты|Салат от шефа|Узбекские помидоры, огурцы, перец, грецкий орех, гранат, кинза|200 г|520\n4|Салаты|Салат мужской|Говядина, болгарский перец, зелень, жареный лук|150 г|440\n4|Салаты|Горячий салат из говядины|Говядина, перец, жареный лук, помидоры, соевый соус|250 г|520\n4|Салаты|Тбилиси|Говядина, перец, красная фасоль, лук, чеснок|150 г|410\n5|Салаты|Мангал салат|Баклажаны, узбекские помидоры, красный лук, перец, гранатовый соус|150 г|390\n5|Салаты|Овощная нарезка, малая|Огурцы, помидоры, салат, лимон, редис, лук, перец, зелень|320 г|540\n5|Салаты|Овощная нарезка, большая|Огурцы, помидоры, салат, лимон, редис, лук, перец, зелень|490 г|690\n5|Салаты|Овощная нарезка с сыром, малая|Овощи, зелень, сыр|390 г|670\n5|Салаты|Овощная нарезка с сыром, большая|Овощи, зелень, сыр|590 г|790\n5|Салаты|Греческий|Огурцы, помидоры, перец, брынза, оливки, красный лук|200 г|410\n5|Салаты|Овощной|Помидоры, огурцы, красный лук, стручковый перец|180 г|190\n5|Салаты|Ачик-чучук|Помидоры, белый лук, стручковый перец, базилик|200 г|420\n5|Салаты|Перепелиное гнездо|Айсберг, перец, огурцы, сыр, ветчина, картофель, перепелиное яйцо|150 г|390\n5|Салаты|Грибная поляна|Черри, руккола, сыр, жареные и маринованные грибы|150 г|410\n6|Салаты|Английский салат|Жареные грибы, куриная грудка, картофель, огурцы, яйцо, орех|180 г|440\n6|Салаты|Салат Юбилейный|Говяжий язык, огурцы, яйцо, пармезан|180 г|440\n6|Салаты|Капрезе|Помидоры, моцарелла, руккола, песто|200 г|490\n6|Салаты|Руккола салат|Куриное филе, руккола, пармезан, черри, кедровые орехи|150 г|420\n6|Салаты|Салат Бутово Гриль|Овощи, листья салата, брынза, оливки, каперсы|200 г|440\n6|Салаты|Салат Мираж|Колбасы, куриная грудка, огурцы, яйцо, перец|180 г|440\n6|Салаты|Цезарь с креветками|Айсберг, черри, пармезан, гренки, креветки|200 г|430\n6|Салаты|Цезарь|Айсберг, черри, пармезан, гренки, куриное филе|200 г|410\n7|Салаты|Мимоза|Рыба, картофель, морковь, сыр, яйцо|200 г|380\n7|Салаты|Оливье|Варёная колбаса, картофель, морковь, огурцы, яйцо, горошек|150 г|340\n7|Салаты|Оливье с мясом|Говядина, картофель, морковь, огурцы, яйцо, горошек|150 г|390\n7|Салаты|Столичный|Куриное филе, картофель, огурцы, яйцо, горошек|150 г|340\n7|Салаты|Принц|Говядина, огурцы, яйцо, пармезан, грецкий орех, чеснок|150 г|380\n7|Салаты|Чабан салат с сыром|Помидоры, огурцы, красный лук, перец, сыр|200 г|420\n7|Салаты|Крабовый салат|Крабовые палочки, пекинская капуста, огурцы, кукуруза|150 г|340\n7|Салаты|Салат из говяжьего языка|Язык, редис, огурец, кукуруза|150 г|390\n8|Салаты|Салат корейский|Морковь, красная капуста|120 г|270\n8|Салаты|Салат из баклажан с чесноком||150 г|330\n8|Салаты|Шампиньон кимчи|Шампиньоны, болгарский перец, петрушка, специи|150 г|390\n8|Первые блюда|Шурпа с говядиной|Говядина, помидоры, картофель, морковь, нут|450 г|410\n9|Первые блюда|Шурпа с бараниной|Баранина, помидоры, картофель, морковь, нут|450 г|430\n9|Первые блюда|Харчо|Баранина в пряном томатном бульоне, со сметаной|350 г|390\n9|Первые блюда|Борщ с говядиной|Телятина, свёкла, капуста, картофель, со сметаной|350 г|370\n9|Первые блюда|Мерджимек|Турецкий суп из чечевицы с говяжьим фаршем|300 г|370\n9|Первые блюда|Чучвара|Суп с пельменями из говядины и баранины, со сметаной|350 г|440\n9|Первые блюда|Солянка|Говядина, колбасы, солёные огурцы, томат|350 г|370\n10|Первые блюда|Грибной суп-пюре|Шампиньоны, картофель, сливки, с сухариками|300 г|360\n10|Первые блюда|Рассольник|Говядина, перловка, картофель, солёные огурцы|350 г|370\n10|Первые блюда|Мастава|Говядина, рис, помидоры, морковь, нут|450 г|390\n10|Первые блюда|Куриный суп с лапшой|Куриное филе, лапша, морковь, картофель|300 г|360\n10|Вторые блюда|Плов «Большой лаган»|На большую компанию|1600 г|2550\n11|Вторые блюда|Плов||380 г|410\n11|Вторые блюда|Плов с двойной порцией мяса||480 г|510\n11|Вторые блюда|Гонфан уйгурский|Говядина, помидор, перец, лук, рис|480 г|590\n11|Вторые блюда|Плов с казы и перепелиным яйцом||400 г|510\n11|Вторые блюда|Кюфте по-турецки с гарниром|Говяжий фарш, жареные помидор и перец, рис|320 г|790\n12|Вторые блюда|Жаркое||300 г|640\n12|Вторые блюда|Нарын|Говядина, казы, варёное тесто, с бульоном|150 г|370\n12|Вторые блюда|Чучвара по-домашнему|Пельмени из говядины и баранины, со сметаной|380 г|460\n12|Вторые блюда|Лагман||420 г|470\n12|Вторые блюда|Манты||380 г|460\n13|Садж|Садж с говядиной|Говядина, грибы, баклажан, картофель, помидор, перец|580 г|1310\n13|Садж|Садж по-турецки с говядиной|Говядина, лук, помидор, перец, рис|580 г|1310\n13|Садж|Садж по-турецки с бараниной|Баранина, лук, помидор, перец, рис|580 г|1310\n13|Садж|Садж с бараниной|Баранина, грибы, баклажан, картофель, помидор, перец|580 г|1310\n13|Садж|Садж с курицей|Курица, грибы, баклажан, картофель, помидор, перец|580 г|1210\n13|Садж|Садж по-турецки с курицей|Курица, лук, помидор, перец, рис|580 г|1210\n14|Стейки|Стейк рибай|Говядина, с гарниром|350 г|1440\n14|Стейки|Стейк Нью-Йорк|Говядина, с гарниром|350 г|1440\n14|Стейки|Стейк тибон|Говядина, с гарниром|440 г|1440\n14|Стейки|Стейк из говядины|С картофелем фри|300 г|860\n15|Стейки|Каре ягнёнка|Баранина, с гарниром|700 г|3200\n15|Стейки|Стейк лукум|Говядина, с гарниром|300 г|1440\n15|Шашлыки|Шашлык бон-филе из говядины|Подаётся на лаваше с соусом и луком|220 г|890\n15|Шашлыки|Баранина спинка||250 г|570\n15|Шашлыки|Перепёлка на мангале||130 г|520\n16|Шашлыки|Баранина корейка||240 г|790\n16|Шашлыки|Шашлык из баранины без жира||220 г|520\n16|Шашлыки|Шашлык из баранины с курдюком||220 г|520\n16|Шашлыки|Люля-кебаб из баранины||220 г|470\n16|Шашлыки|Люля-кебаб из говядины||220 г|470\n16|Шашлыки|Шашлык из говядины с жиром||220 г|510\n16|Шашлыки|Шашлык из говядины||220 г|510\n16|Шашлыки|Рулет из говядины||220 г|510\n16|Шашлыки|Наполеон из говядины||220 г|510\n16|Шашлыки|Люля-кебаб с сыром||300 г|520\n16|Шашлыки|Люля-кебаб нежный из говядины||200 г|510\n16|Шашлыки|Люля-кебаб куриный рулет||220 г|420\n16|Шашлыки|Куриный шашлык||250 г|410\n16|Шашлыки|Крылышки куриные на мангале||250 г|390\n16|Шашлыки|Люля-кебаб куриный||220 г|410\n17|Шашлыки|Ассорти Butovo Grill Standart|13 шампуров ассорти, гарнир в подарок|2600 г|6300\n17|Шашлыки|Ассорти Butovo Grill Maxi|16 шампуров ассорти, гарнир в подарок|3000 г|7340\n18|Рыба|Дорадо|С гарниром|250–280 г|790\n18|Рыба|Сёмга|С гарниром|250–280 г|990\n18|Рыба|Скумбрия|С гарниром|250–280 г|720\n18|Рыба|Сибас|С гарниром|250–280 г|790\n19|Гарниры и соусы|Гречка||100 г|240\n19|Гарниры и соусы|Картофельное пюре||100 г|240\n19|Гарниры и соусы|Рис отварной||100 г|240\n19|Гарниры и соусы|Картофель запечённый||100 г|270\n19|Гарниры и соусы|Грибы запечённые||100 г|270\n19|Гарниры и соусы|Овощи запечённые|Баклажан, перец, помидор|100 г|290\n19|Гарниры и соусы|Картофель фри||150 г|310\n19|Гарниры и соусы|Соус терияки||30 г|120\n19|Гарниры и соусы|Соус шашлычный||30 г|120\n19|Гарниры и соусы|Соус барбекю||30 г|120\n19|Гарниры и соусы|Соус чесночный||50 г|120\n19|Гарниры и соусы|Наршараб гранатовый||30 г|120\n19|Гарниры и соусы|Соус томатный||30 г|120\n20|Выпечка|Самса слоёная с зеленью||120 г|130\n20|Выпечка|Самса слоёная с тыквой||120 г|130\n20|Выпечка|Самса слоёная с мясом||120 г|130\n20|Выпечка|Лепёшка||270 г|80\n20|Выпечка|Кульча|Лепёшка|140 г|70\n20|Выпечка|Чебурек||130 г|130\n20|Выпечка|Сосиска в тесте||100 г|120\n20|Выпечка|Хачапури по-аджарски||380 г|520\n20|Выпечка|Хачапури по-имеретински||360 г|520\n21|Десерты|Пудинг шоколадный / творожный||230 г|340\n21|Десерты|Сютлач||200 г|340\n21|Десерты|Ривани||110 г|310\n21|Десерты|Шекерпаре||70 г|120\n22|Десерты|Пахлава домашняя||55 г|190\n22|Десерты|Пахлава малая||50 г|160\n22|Десерты|Пахлава большая||130 г|340\n22|Десерты|Пахлава большая с мороженым||180 г|440\n22|Десерты|Ассорти к чаю|Кешью, грецкий орех, фисташки, изюм, финики, мёд|400 г|1100\n22|Десерты|Чак-чак||150 г|340\n22|Десерты|Пирог творожный||150 г|340\n22|Десерты|Мороженое|Ванильное, шоколадное, крем-брюле|50 г|160\n22|Десерты|Мороженое ассорти||150 г|460\n23|Торты|Торт медовый, кусок||140 г|340\n23|Торты|Торт бисквит, кусок||125 г|340\n23|Торты|Торт наполеон, кусок||110 г|340\n23|Торты|Торт шоколадный, кусок||150 г|340\n23|Торты|Торт праздничный целый||1400 г|3800\n23|Торты|Торт творожный целый||1200 г|2620\n23|Торты|Торт шоколадный целый||1500 г|3300\n23|Торты|Торт бисквит целый||1350 г|3300\n24|Фрукты и орехи|Фруктовая тарелка большая||1800 г|1290\n24|Фрукты и орехи|Фруктовая тарелка малая||900 г|990\n24|Фрукты и орехи|Гранат||1 шт|140\n24|Фрукты и орехи|Яблоко||1 шт|100\n24|Фрукты и орехи|Апельсин||1 шт|120\n24|Фрукты и орехи|Лимон||1 шт|120\n24|Фрукты и орехи|Грецкий орех||120 г|290\n24|Фрукты и орехи|Изюм||100 г|290\n24|Фрукты и орехи|Фисташки||120 г|340\n24|Фрукты и орехи|Кешью||120 г|290\n24|Фрукты и орехи|Финики королевские||120 г|310\n25|Чай, кофе и варенье|Чай чёрный||600 мл|190\n25|Чай, кофе и варенье|Чай зелёный||600 мл|190\n25|Чай, кофе и варенье|Чай зелёный молочный улун||600 мл|220\n25|Чай, кофе и варенье|Мёд||100 г|260\n25|Чай, кофе и варенье|Варенье кизиловое||100 г|260\n25|Чай, кофе и варенье|Варенье из грецкого ореха||100 г|260\n25|Чай, кофе и варенье|Варенье из белой черешни||100 г|260\n25|Чай, кофе и варенье|Варенье малиновое||100 г|260\n25|Чай, кофе и варенье|Варенье из инжира||100 г|260\n25|Чай, кофе и варенье|Варенье клубничное||100 г|260\n25|Чай, кофе и варенье|Эспрессо||35 мл|140\n25|Чай, кофе и варенье|Американо||160 мл|190\n25|Чай, кофе и варенье|Капучино||200 мл|220\n25|Чай, кофе и варенье|Латте||280 мл|230\n25|Чай, кофе и варенье|Глясе||250 мл|270\n25|Чай, кофе и варенье|Кофе по-турецки||80 мл|180\n25|Чай, кофе и варенье|Какао на молоке||200 мл|170\n26|Напитки|Молочный коктейль|Ванильный, шоколадный, клубничный, банановый|280 мл|310\n26|Напитки|Мохито клубничный|Спрайт, лайм, мята, клубника|280 мл|310\n26|Напитки|Мохито классический|Спрайт, лайм, мята|280 мл|310\n26|Напитки|Мохито клубничный, кувшин||1 л|960\n26|Напитки|Мохито классический, кувшин||1 л|990\n26|Напитки|Добрый Кола||0,5 л|130\n26|Напитки|Coca-Cola, стекло||0,33 л|170\n26|Напитки|Бонаква||0,5 л|110\n26|Напитки|Боржоми||0,5 л|170\n26|Напитки|Лимонад Натахтари||0,5 л|190\n26|Напитки|Red Bull||0,25 л|190\n27|Напитки|Айран||500 мл|180\n27|Напитки|Морс||500 мл|180\n27|Напитки|Компот||500 мл|180\n27|Напитки|Сок апельсиновый свежевыжатый||200 мл|370\n27|Напитки|Сок гранатовый свежевыжатый||200 мл|590\n27|Напитки|Добрый сок||1 л|260";
+const CAT_IMG = { 'Завтраки': 1, 'Закуски': 2, 'Салаты': 4, 'Первые блюда': 9, 'Вторые блюда': 10, 'Садж': 13, 'Стейки': 14, 'Шашлыки': 16, 'Рыба': 18, 'Гарниры и соусы': 19, 'Выпечка': 20, 'Десерты': 22, 'Торты': 23, 'Фрукты и орехи': 24, 'Чай, кофе и варенье': 25, 'Напитки': 26 };
+const ITEMS = RAW.split('\n').map((l, i) => { const [page, cat, name, desc, weight, price] = l.split('|'); return { id: i, page: Number(page), cat, name, desc, weight, price: Number(price) }; });
+const GROUPS = [];
+ITEMS.forEach(it => { let g = GROUPS.find(g => g.title === it.cat); if (!g) { g = { title: it.cat, items: [] }; GROUPS.push(g); } g.items.push(it); });
+const rub = n => n.toLocaleString('ru-RU') + ' ₽';
+const PLACES = [
+  { short: 'Бартеневская, 14', phone: '+7 (999) 111-19-58' },
+  { short: 'Академика Глушко, 15', phone: '+7 (999) 990-19-58' }
+];
+const REVIEWS = [
+  { name: 'Марина Ж.', date: 'апрель 2026', text: 'Манты здесь — настоящий ритуал. Плов рассыпчатый, ароматный, с идеальным балансом специй. И рецептура не меняется — всё на том же высоком уровне.' },
+  { name: 'Ирина З.', date: 'апрель 2026', text: 'Тёплое, уютное место. Шашлык нежный и сочный, отличное обслуживание, есть игровая для детей. Домашняя спокойная атмосфера.' },
+  { name: 'Елена Р.', date: 'сентябрь 2023', text: 'Наивкуснейший плов, самса, хачапури, чебурек. Улыбчивый персонал. Я клиент с 2017 года — ни разу не было нареканий.' },
+  { name: 'Kirill Z.', date: 'апрель 2026', text: 'Знаю это место с 2018 года. Ребята держат марку! Вкусно абсолютно всё. Мой любимый плов.' },
+  { name: 'Вероника', date: 'апрель 2025', text: 'Вместо кетчупа кладут аджику собственного приготовления. А какие манты! А плов! Я здесь постоянный клиент.' },
+  { name: 'Сурен', date: 'ноябрь 2025', text: 'Шаурма одна из лучших в Москве. Но ещё больше нравятся манты — всегда горячие, прямо с пара.' },
+  { name: 'Виталий Ж.', date: 'сентябрь 2026', text: 'Цены, качество еды, чистота — на уровне. Персонал вежливый, в перчатках. Разнообразное меню.' }
+];
+const MIN_DELIVERY = 1000;
+const GIFTS = [
+  { title: 'Ужин на двоих', note: 'Плов, шашлык, салат, чайник чая и десерт', price: 3500 },
+  { title: 'Семейный ужин', note: 'На 4 персоны: лаган плова, ассорти шашлыка, салаты, чай', price: 7900 },
+  { title: 'Стол на компанию', note: 'Ассорти Butovo Grill Standart, плов, напитки на 6–8 гостей', price: 12000 },
+  { title: 'Своя сумма', note: 'Сертификат на любой номинал', price: 0 }
+];
+const GIFT0 = { opt: 0, amount: 3000, branch: 0, to: '', from: '', msg: '', phone: '', date: '', pay: 'card' };
+const HERO = [
+  { word: 'ПЛОВ', img: 'assets/plov-hero.png', item: 'Плов', bright: true },
+  { word: 'МАНГАЛ', img: 'assets/hero-shashlik.jpg', item: 'Шашлык из говядины' },
+  { word: 'МАНТЫ', img: 'assets/hero-manty.jpg', item: 'Манты' },
+  { word: 'САМСА', img: 'assets/hero-samsa.jpg', item: 'Самса слоёная с мясом' }
+];
+class Component extends DCLogic {
+  state = { query: '', qty: {}, openCats: {}, openDesc: {}, orderOpen: false, orderSent: false,
+    ord: { mode: 'pickup', branch: 0, address: '', name: '', phone: '', comment: '' },
+    sent: false, form: { branch: 0, date: '', time: '19:00', guests: '2', name: '', phone: '' } };
+  componentDidMount() { this.startHero(); }
+  componentWillUnmount() { clearInterval(this.heroTimer); }
+  startHero() { clearInterval(this.heroTimer); this.heroTimer = setInterval(() => this.setState(s => ({ hero: ((s.hero || 0) + 1) % HERO.length })), 6000); }
+  setHero(i) { this.setState({ hero: i }); this.startHero(); }
+  goHero(d) { this.setHero(((this.state.hero || 0) + d + HERO.length) % HERO.length); }
+  setQty(id, d) { this.setState(s => { const q = { ...s.qty }; q[id] = Math.max(0, (q[id] || 0) + d); if (!q[id]) delete q[id]; return { qty: q }; }); }
+  setF(k) { return e => { const v = e.target.value; this.setState(s => ({ form: { ...s.form, [k]: v } })); }; }
+  setO(k) { return e => { const v = e.target.value; this.setState(s => ({ ord: { ...s.ord, [k]: k === 'branch' ? Number(v) : v } })); }; }
+  renderVals() {
+    const { query, qty, orderOpen, orderSent, ord, sent, form } = this.state;
+    const q = query.trim().toLowerCase();
+    const cats = GROUPS.map((g, gi) => {
+      const items = g.items.filter(it => !q || (it.name + ' ' + it.desc).toLowerCase().includes(q)).map(it => {
+        const n = qty[it.id] || 0;
+        return { ...it, qty: n, inCart: n > 0, notInCart: n === 0, priceLabel: rub(it.price), border: n > 0 ? '#e3a64a' : '#f4ede1',
+          inc: () => this.setQty(it.id, 1), dec: () => this.setQty(it.id, -1),
+          chipBg: n > 0 ? '#e3a64a' : 'transparent', chipColor: n > 0 ? '#14110e' : '#f1e9dc', chipBorder: n > 0 ? '#e3a64a' : '#4a4035',
+          chipRight: n > 0 ? '× ' + n : rub(it.price),
+          hasDesc: !!it.desc, descOpen: !!it.desc && !!this.state.openDesc[it.id], descLabel: this.state.openDesc[it.id] ? 'Скрыть состав' : 'Состав',
+          toggleDesc: () => this.setState(s => ({ openDesc: { ...s.openDesc, [it.id]: !s.openDesc[it.id] } })) };
+      });
+      const pages = [...new Set(items.map(it => it.page))].map(p => ({ src: `assets/menu/p${String(p).padStart(2, '0')}.jpg`, items: items.filter(it => it.page === p) }));
+      return { title: g.title, anchor: 'cat-' + gi, href: '#cat-' + gi, pages, items, count: items.length + ' поз.' };
+    }).filter(c => c.items.length);
+    const cartLines = ITEMS.filter(it => qty[it.id]).map(it => ({ ...it, qty: qty[it.id], priceLabel: rub(it.price), sumLabel: rub(it.price * qty[it.id]),
+      inc: () => this.setQty(it.id, 1), dec: () => this.setQty(it.id, -1) }));
+    const total = cartLines.reduce((s, l) => s + l.price * l.qty, 0);
+    const count = cartLines.reduce((s, l) => s + l.qty, 0);
+    const isDelivery = ord.mode === 'delivery';
+    const belowMin = isDelivery && total > 0 && total < MIN_DELIVERY;
+    const cantSubmit = !count || belowMin;
+    const times = [];
+    for (let h = 9; h <= 23; h++) { times.push(`${String(h).padStart(2,'0')}:00`); times.push(`${String(h).padStart(2,'0')}:30`); }
+    const dateLabel = form.date ? new Date(form.date).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' }) : '';
+    const hs = HERO[this.state.hero || 0];
+    const hItem = ITEMS.find(it => it.name === hs.item);
+    const hQty = hItem ? (qty[hItem.id] || 0) : 0;
+    const gift = this.state.gift || GIFT0;
+    const gOpt = GIFTS[gift.opt];
+    const gPrice = gOpt.price || Math.max(1000, Number(gift.amount) || 0);
+    const setG = k => e => { const v = e.target.value; this.setState(s => ({ gift: { ...(s.gift || GIFT0), [k]: k === 'branch' ? Number(v) : v } })); };
+    const gCode = 'BG-' + String(1958 + (gift.to.length * 37 + gPrice) % 8000).padStart(4, '0');
+    return {
+      gift, giftOpts: GIFTS.map((g, i) => ({ ...g, priceLabel: g.price ? rub(g.price) : 'от 1 000 ₽', bg: gift.opt === i ? '#2b231a' : '#1a1612', border: gift.opt === i ? '#e3a64a' : '#3a3229', select: () => this.setState(s => ({ gift: { ...(s.gift || GIFT0), opt: i } })) })),
+      giftCustom: !gOpt.price, giftTitle: gOpt.price ? gOpt.title : rub(gPrice), giftPrice: rub(gPrice),
+      giftTo: gift.to || '—', giftMsg: gift.msg || 'Приятного вечера в чайхоне', giftBranch: PLACES[gift.branch].short.toUpperCase(), giftCode: gCode,
+      onGiftAmount: setG('amount'), onGiftBranch: setG('branch'), onGiftTo: setG('to'), onGiftFrom: setG('from'), onGiftMsg: setG('msg'), onGiftPhone: setG('phone'), onGiftDate: setG('date'),
+      payOpts: [['card', 'Картой'], ['sbp', 'СБП']].map(([v, label]) => ({ label, bg: gift.pay === v ? '#2b231a' : 'transparent', border: gift.pay === v ? '#e3a64a' : '#3a3229', select: () => this.setState(s => ({ gift: { ...(s.gift || GIFT0), pay: v } })) })),
+      giftPaid: !!this.state.giftPaid, giftNotPaid: !this.state.giftPaid,
+      payGift: e => { e.preventDefault(); this.setState({ giftPaid: true }); },
+      resetGift: () => this.setState({ giftPaid: false, gift: GIFT0 }),
+      giftSummary: `${gift.to} получит SMS с кодом ${gCode} ${gift.date ? new Date(gift.date).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' }) : 'сразу'} на ${gift.phone}. Подарок от ${gift.from}: ${gOpt.price ? gOpt.title.toLowerCase() : 'сертификат на ' + rub(gPrice)}, ${PLACES[gift.branch].short}.`,
+      heroWord: React.createElement('div', { key: 'w' + (this.state.hero || 0), 'aria-hidden': true, style: { position: 'absolute', left: 0, right: 0, bottom: 0, zIndex: 3, display: 'flex', justifyContent: 'center', fontFamily: "'Cormorant',serif", fontWeight: 600, fontSize: 'clamp(84px,15vw,230px)', textShadow: '0 6px 30px rgba(0,0,0,0.6)', lineHeight: 1, color: '#e3a64a', letterSpacing: '-0.02em', whiteSpace: 'nowrap', pointerEvents: 'none', animation: 'heroWordIn 0.9s cubic-bezier(.2,.7,.2,1) both' } }, hs.word),
+      heroImg: React.createElement('img', { key: 'i' + (this.state.hero || 0), src: hs.img, alt: hs.item, style: { width: '100%', height: '100%', objectFit: 'cover', display: 'block', filter: hs.bright ? 'brightness(1.25)' : 'none', animation: 'heroImgIn 1.1s cubic-bezier(.2,.7,.2,1) both' } }),
+      heroCounter: `0${(this.state.hero || 0) + 1} / 0${HERO.length}`,
+      heroDish: hItem ? hItem.name : hs.item, heroMeta: hItem ? `${hItem.weight} · ${rub(hItem.price)}` : '',
+      heroAddLabel: hQty ? `В заказе · ${hQty}` : '+ В заказ',
+      heroAdd: () => hItem && this.setQty(hItem.id, 1),
+      heroPrev: () => this.goHero(-1), heroNext: () => this.goHero(1),
+      heroDots: HERO.map((_, i) => ({ color: i === (this.state.hero || 0) ? '#e3a64a' : '#4a4035', go: () => this.setHero(i) })),
+      navOpen: !!this.state.navOpen,
+      openNav: () => this.setState({ navOpen: true }), closeNav: () => this.setState({ navOpen: false }),
+      navLinks: [['#menu','Меню'],['#delivery','Доставка'],['#gift','Подарить ужин'],['#reviews','Отзывы'],['#about','О нас'],['#booking','Бронь стола']].map(([href,label],i)=>({ href, label, num: '0' + (i+1) })),
+      query, onQuery: e => this.setState({ query: e.target.value }), cats, noResults: !cats.length,
+      showPhotos: this.props.showCategoryPhotos ?? true,
+      layoutCards: (this.props.menuLayout ?? 'Список') === 'Карточки',
+      layoutList: (this.props.menuLayout ?? 'Список') === 'Список',
+      layoutChips: (this.props.menuLayout ?? 'Список') === 'Кнопки',
+      reviews: REVIEWS,
+      cartLines, hasCart: count > 0, cartEmpty: count === 0, cartCount: count + ' поз.', cartTotal: rub(total),
+      orderOpen, orderSent, orderNotSent: !orderSent, ord, isDelivery, belowMin, minLeft: rub(MIN_DELIVERY - total),
+      cantSubmit, submitOpacity: cantSubmit ? 0.4 : 1,
+      openOrder: () => this.setState({ orderOpen: true, orderSent: false }),
+      closeOrder: () => this.setState({ orderOpen: false }), stop: e => e.stopPropagation(),
+      modeOpts: [['pickup', 'Самовывоз'], ['delivery', 'Доставка']].map(([v, label]) => ({ label, bg: ord.mode === v ? '#e3a64a' : 'transparent', color: ord.mode === v ? '#14110e' : '#c8bead', select: () => this.setState(s => ({ ord: { ...s.ord, mode: v } })) })),
+      branchSelect: PLACES.map((p, i) => ({ v: i, label: p.short })),
+      onOrdBranch: this.setO('branch'), onOrdAddress: this.setO('address'), onOrdName: this.setO('name'), onOrdPhone: this.setO('phone'), onOrdComment: this.setO('comment'),
+      submitOrder: e => { e.preventDefault(); if (!cantSubmit) this.setState({ orderSent: true }); },
+      resetOrder: () => this.setState({ qty: {}, orderOpen: false, orderSent: false }),
+      orderSummary: `${isDelivery ? 'Доставка: ' + ord.address : 'Самовывоз: ' + PLACES[ord.branch].short} · ${count} поз. на ${rub(total)}. Перезвоним на ${ord.phone} для подтверждения.`,
+      form, sent, notSent: !sent, times,
+      guestOpts: ['1','2','3','4','5','6','7','8','10+'],
+      branchOpts: PLACES.map((p, i) => ({ short: p.short, bg: form.branch === i ? '#2b231a' : '#14110e', border: form.branch === i ? '#e3a64a' : '#3a3229', select: () => this.setState(s => ({ form: { ...s.form, branch: i } })) })),
+      onDate: this.setF('date'), onTime: this.setF('time'), onGuests: this.setF('guests'), onName: this.setF('name'), onPhone: this.setF('phone'),
+      submit: e => { e.preventDefault(); this.setState({ sent: true }); },
+      reset: () => this.setState({ sent: false, form: { branch: 0, date: '', time: '19:00', guests: '2', name: '', phone: '' } }),
+      summary: `${PLACES[form.branch].short} · ${dateLabel}, ${form.time} · гостей: ${form.guests}. Перезвоним на ${form.phone}.`
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#14110e;color:#f1e9dc;font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#e3a64a;text-decoration:none}
+a:hover{color:#f1e9dc}
+input,select,button{font-family:inherit}
+</style>
+</helmet>
+<div style="min-height:100vh;background:#14110e;color:#f1e9dc">
+
+<header style="position:sticky;top:0;z-index:20;background:rgba(20,17,14,0.9);backdrop-filter:blur(10px);border-bottom:1px solid #2b251e">
+  <div style="max-width:1240px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+    <a href="#top" style="display:flex;align-items:center;gap:12px;color:#f1e9dc">
+      <img src="https://static.tildacdn.com/tild3538-3865-4632-b237-366265306534/Polish_20230418_1547.png" alt="Butovo Grill" style="height:44px;width:auto;display:block">
+      <span style="display:flex;flex-direction:column;line-height:1.05">
+        <span style="font-size:11px;letter-spacing:0.22em;color:#e3a64a;font-weight:600">ЧАЙХОНА</span>
+        <span style="font-family:'Cormorant',serif;font-size:22px;font-weight:600;letter-spacing:0.02em">Butovo Grill 1958</span>
+      </span>
+    </a>
+    <nav style="display:flex;gap:26px;flex-wrap:wrap;font-size:14px;font-weight:500">
+      <a href="#menu" style="color:#c8bead" style-hover="color:#f1e9dc">Меню</a>
+      <a href="#delivery" style="color:#c8bead" style-hover="color:#f1e9dc">Доставка</a>
+      <a href="#reviews" style="color:#c8bead" style-hover="color:#f1e9dc">Отзывы</a>
+      <a href="#about" style="color:#c8bead" style-hover="color:#f1e9dc">О нас</a>
+      <a href="#booking" style="color:#c8bead" style-hover="color:#f1e9dc">Бронь</a>
+    </nav>
+    <a href="tel:+79991111958" style="padding:11px 20px;background:#e3a64a;color:#14110e;font-weight:700;font-size:14px;border-radius:999px" style-hover="background:#f1e9dc;color:#14110e">+7 999 111-19-58</a>
+  </div>
+</header>
+
+<section id="top" style="max-width:1240px;margin:0 auto;padding:80px 24px 96px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:56px;align-items:center">
+  <div style="display:flex;flex-direction:column;gap:30px">
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <span style="padding:7px 14px;border:1px solid #3a3229;border-radius:999px;font-size:12px;letter-spacing:0.08em;color:#c8bead">ЕЖЕДНЕВНО 09:00 – 01:00</span>
+      <span style="padding:7px 14px;border:1px solid #3a3229;border-radius:999px;font-size:12px;letter-spacing:0.08em;color:#c8bead">2 РЕСТОРАНА В БУТОВО</span>
+    </div>
+    <h1 style="margin:0;font-family:'Cormorant',serif;font-weight:500;font-size:clamp(56px,8vw,108px);line-height:0.92;letter-spacing:-0.01em;text-wrap:balance">Плов, мангал и&nbsp;долгий <span style="font-style:italic;color:#e3a64a">чай</span></h1>
+    <p style="margin:0;max-width:460px;font-size:17px;line-height:1.65;color:#c8bead;text-wrap:pretty">Чайхона в Южном Бутово: восточная кухня, шашлык на углях и спокойные вечера с семьёй и друзьями — с завтрака до глубокой ночи.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <a href="#booking" style="padding:16px 30px;background:#e3a64a;color:#14110e;font-weight:700;font-size:15px;border-radius:999px" style-hover="background:#f1e9dc;color:#14110e">Забронировать стол</a>
+      <a href="#menu" style="padding:16px 30px;border:1px solid #4a4035;color:#f1e9dc;font-size:15px;font-weight:500;border-radius:999px" style-hover="border-color:#f1e9dc;color:#f1e9dc">Смотреть меню</a>
+    </div>
+  </div>
+  <div style="aspect-ratio:4/5;border-radius:220px 220px 6px 6px;overflow:hidden;border:1px solid #2b251e;background:#211c17">
+    <img src="assets/plov-hero.png" alt="Плов Butovo Grill" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(1.25) saturate(1.05)">
+  </div>
+</section>
+
+<section id="menu" style="background:#1a1612;border-top:1px solid #2b251e">
+  <div style="max-width:1240px;margin:0 auto;padding:96px 24px;display:flex;flex-direction:column;gap:40px">
+    <div style="display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:12px;letter-spacing:0.22em;color:#e3a64a;font-weight:600">МЕНЮ</span>
+        <h2 style="margin:0;font-family:'Cormorant',serif;font-weight:500;font-size:clamp(40px,5vw,64px);line-height:1">Всё меню чайханы</h2>
+      </div>
+      <p style="margin:0;max-width:380px;font-size:15px;line-height:1.6;color:#a89d8c">Нажмите на страницу, чтобы открыть её целиком. Листайте стрелками.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax({{ thumbMin }},1fr));gap:16px">
+      <sc-for list="{{ pages }}" as="p" hint-placeholder-count="8">
+        <div style="border:1px solid #2b251e;background:#211c17;border-radius:6px;overflow:hidden;display:flex;flex-direction:column" style-hover="border-color:#4a4035">
+          <button onClick="{{ p.open }}" style="padding:0;border:none;background:none;cursor:zoom-in;display:block">
+            <img src="{{ p.src }}" alt="Страница меню {{ p.n }}" loading="lazy" style="width:100%;aspect-ratio:1680/1063;object-fit:cover;display:block;background:#211c17">
+          </button>
+          <div style="padding:10px 10px 10px 14px;display:flex;justify-content:space-between;align-items:center;gap:10px">
+            <span style="font-size:12px;letter-spacing:0.08em;color:#a89d8c">СТР. {{ p.n }}</span>
+            <button onClick="{{ p.order }}" style="padding:9px 16px;border:none;border-radius:999px;background:#e3a64a;color:#14110e;font-size:13px;font-weight:700;cursor:pointer" style-hover="background:#f1e9dc">Заказать</button>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="about" style="border-top:1px solid #2b251e">
+  <div style="max-width:1240px;margin:0 auto;padding:96px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:56px">
+    <h2 style="margin:0;font-family:'Cormorant',serif;font-weight:500;font-size:clamp(40px,5vw,64px);line-height:1;text-wrap:balance">Место, куда приходят <span style="font-style:italic;color:#e3a64a">надолго</span></h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:32px">
+      <div style="display:flex;flex-direction:column;gap:10px;padding-top:18px;border-top:1px solid #3a3229">
+        <div style="font-family:'Cormorant',serif;font-size:28px">Мангал</div>
+        <p style="margin:0;font-size:15px;line-height:1.65;color:#a89d8c;text-wrap:pretty">Шашлык, люля и овощи на живых углях.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;padding-top:18px;border-top:1px solid #3a3229">
+        <div style="font-family:'Cormorant',serif;font-size:28px">Восточная кухня</div>
+        <p style="margin:0;font-size:15px;line-height:1.65;color:#a89d8c;text-wrap:pretty">Плов, лагман, самса и выпечка из тандыра.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;padding-top:18px;border-top:1px solid #3a3229">
+        <div style="font-family:'Cormorant',serif;font-size:28px">С 9 утра до часу ночи</div>
+        <p style="margin:0;font-size:15px;line-height:1.65;color:#a89d8c;text-wrap:pretty">Завтраки, бизнес-обеды, семейные ужины и праздники.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" style="background:#1a1612;border-top:1px solid #2b251e">
+  <div style="max-width:1240px;margin:0 auto;padding:96px 24px;display:flex;flex-direction:column;gap:40px">
+    <div style="display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:12px;letter-spacing:0.22em;color:#e3a64a;font-weight:600">ОТЗЫВЫ</span>
+        <h2 style="margin:0;font-family:'Cormorant',serif;font-weight:500;font-size:clamp(40px,5vw,64px);line-height:1">Что говорят гости</h2>
+      </div>
+      <a href="https://yandex.com/maps/org/butovo_grill/6865667887/reviews/" target="_blank" style="display:flex;align-items:center;gap:16px;padding:14px 22px;border:1px solid #3a3229;border-radius:999px;color:#f1e9dc" style-hover="border-color:#e3a64a;color:#f1e9dc">
+        <span style="font-family:'Cormorant',serif;font-size:36px;line-height:1;color:#e3a64a">4,4</span>
+        <span style="display:flex;flex-direction:column;font-size:13px;line-height:1.35;color:#c8bead"><span>★★★★☆ Яндекс Карты</span><span>981 оценка · все отзывы →</span></span>
+      </a>
+    </div>
+    <div style="columns:3 300px;column-gap:20px">
+      <sc-for list="{{ reviews }}" as="r" hint-placeholder-count="6">
+        <figure style="margin:0 0 20px;break-inside:avoid;padding:28px;background:#14110e;border:1px solid #2b251e;border-radius:6px;display:flex;flex-direction:column;gap:18px">
+          <span style="font-size:14px;letter-spacing:0.12em;color:#e3a64a">★★★★★</span>
+          <blockquote style="margin:0;font-family:'Cormorant',serif;font-size:22px;line-height:1.4;color:#f1e9dc;text-wrap:pretty">«{{ r.text }}»</blockquote>
+          <figcaption style="display:flex;justify-content:space-between;gap:12px;font-size:13px;color:#a89d8c"><span style="color:#f1e9dc;font-weight:600">{{ r.name }}</span><span>{{ r.date }}</span></figcaption>
+        </figure>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="delivery" style="border-top:1px solid #2b251e">
+  <div style="max-width:1240px;margin:0 auto;padding:96px 24px;display:flex;flex-direction:column;gap:48px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:40px;align-items:end">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:12px;letter-spacing:0.22em;color:#e3a64a;font-weight:600">ДОСТАВКА</span>
+        <h2 style="margin:0;font-family:'Cormorant',serif;font-weight:500;font-size:clamp(40px,5vw,64px);line-height:1;text-wrap:balance">Плов и манты — <span style="font-style:italic;color:#e3a64a">к вам домой</span></h2>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:20px;align-items:flex-start">
+        <p style="margin:0;font-size:16px;line-height:1.7;color:#c8bead;max-width:460px">Привезём горячим из ближайшего ресторана. Можно забрать и самому — заказ будет готов к вашему приходу.</p>
+        <button onClick="{{ startDelivery }}" style="padding:16px 30px;border:none;background:#e3a64a;color:#14110e;font-weight:700;font-size:15px;border-radius:999px;cursor:pointer" style-hover="background:#f1e9dc">Оформить доставку</button>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:20px">
+      <div style="padding:28px;border:1px solid #2b251e;border-radius:6px;display:flex;flex-direction:column;gap:12px">
+        <span style="font-family:'Cormorant',serif;font-size:44px;line-height:1;color:#e3a64a">01</span>
+        <span style="font-size:17px;font-weight:600">Выберите блюда</span>
+        <span style="font-size:14px;line-height:1.6;color:#a89d8c">Нажмите «Заказать» под нужной страницей меню.</span>
+      </div>
+      <div style="padding:28px;border:1px solid #2b251e;border-radius:6px;display:flex;flex-direction:column;gap:12px">
+        <span style="font-family:'Cormorant',serif;font-size:44px;line-height:1;color:#e3a64a">02</span>
+        <span style="font-size:17px;font-weight:600">Укажите адрес</span>
+        <span style="font-size:14px;line-height:1.6;color:#a89d8c">Выберите «Доставка» и оставьте телефон.</span>
+      </div>
+      <div style="padding:28px;border:1px solid #2b251e;border-radius:6px;display:flex;flex-direction:column;gap:12px">
+        <span style="font-family:'Cormorant',serif;font-size:44px;line-height:1;color:#e3a64a">03</span>
+        <span style="font-size:17px;font-weight:600">Подтвердим звонком</span>
+        <span style="font-size:14px;line-height:1.6;color:#a89d8c">Оператор уточнит заказ, сумму и время.</span>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:1px;background:#2b251e;border:1px solid #2b251e;border-radius:6px;overflow:hidden">
+      <div style="background:#14110e;padding:22px 24px;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;letter-spacing:0.08em;color:#a89d8c">ЗОНА</span><span style="font-size:17px">Южное Бутово</span></div>
+      <div style="background:#14110e;padding:22px 24px;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;letter-spacing:0.08em;color:#a89d8c">ВРЕМЯ</span><span style="font-size:17px">60–90 минут</span></div>
+      <div style="background:#14110e;padding:22px 24px;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;letter-spacing:0.08em;color:#a89d8c">МИНИМАЛЬНЫЙ ЗАКАЗ</span><span style="font-size:17px">1 000 ₽</span></div>
+      <div style="background:#14110e;padding:22px 24px;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;letter-spacing:0.08em;color:#a89d8c">ПРИНИМАЕМ ЗАКАЗЫ</span><span style="font-size:17px">09:00 – 00:30</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="booking" style="border-top:1px solid #2b251e">
+  <div style="max-width:1240px;margin:0 auto;padding:96px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:56px">
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <span style="font-size:12px;letter-spacing:0.22em;color:#e3a64a;font-weight:600">БРОНИРОВАНИЕ</span>
+      <h2 style="margin:0;font-family:'Cormorant',serif;font-weight:500;font-size:clamp(40px,5vw,64px);line-height:1">Оставьте заявку — перезвоним</h2>
+      <p style="margin:0;font-size:16px;line-height:1.7;color:#c8bead;max-width:420px">Для банкетов и больших компаний лучше позвонить в нужный ресторан напрямую.</p>
+    </div>
+    <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+      <form onSubmit="{{ submit }}" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:16px">
+        <div style="grid-column:1 / -1;display:flex;flex-direction:column;gap:8px">
+          <span style="font-size:12px;letter-spacing:0.08em;color:#a89d8c">РЕСТОРАН</span>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:10px">
+            <sc-for list="{{ branchOpts }}" as="b" hint-placeholder-count="2">
+              <button type="button" onClick="{{ b.select }}" style="padding:14px 16px;border-radius:6px;border:1px solid {{ b.border }};background:{{ b.bg }};color:#f1e9dc;font-size:15px;cursor:pointer;text-align:left">{{ b.short }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <label style="display:flex;flex-direction:column;gap:8px;font-size:12px;letter-spacing:0.08em;color:#a89d8c">ДАТА
+          <input type="date" required="required" value="{{ form.date }}" onChange="{{ onDate }}" style="padding:14px;background:#1a1612;border:1px solid #3a3229;border-radius:6px;color:#f1e9dc;font-size:15px;color-scheme:dark">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:8px;font-size:12px;letter-spacing:0.08em;color:#a89d8c">ВРЕМЯ
+          <select value="{{ form.time }}" onChange="{{ onTime }}" style="padding:14px;background:#1a1612;border:1px solid #3a3229;border-radius:6px;color:#f1e9dc;font-size:15px">
+            <sc-for list="{{ times }}" as="tm" hint-placeholder-count="6"><option value="{{ tm }}">{{ tm }}</option></sc-for>
+          </select>
+        </label>
+        <label style="display:flex;flex-direction:column;gap:8px;font-size:12px;letter-spacing:0.08em;color:#a89d8c">ГОСТЕЙ
+          <select value="{{ form.guests }}" onChange="{{ onGuests }}" style="padding:14px;background:#1a1612;border:1px solid #3a3229;border-radius:6px;color:#f1e9dc;font-size:15px">
+            <sc-for list="{{ guestOpts }}" as="g" hint-placeholder-count="8"><option value="{{ g }}">{{ g }}</option></sc-for>
+          </select>
+        </label>
+        <label style="display:flex;flex-direction:column;gap:8px;font-size:12px;letter-spacing:0.08em;color:#a89d8c">ИМЯ
+          <input type="text" required="required" placeholder="Анна" value="{{ form.name }}" onChange="{{ onName }}" style="padding:14px;background:#1a1612;border:1px solid #3a3229;border-radius:6px;color:#f1e9dc;font-size:15px">
+        </label>
+        <label style="grid-column:1 / -1;display:flex;flex-direction:column;gap:8px;font-size:12px;letter-spacing:0.08em;color:#a89d8c">ТЕЛЕФОН
+          <input type="tel" required="required" placeholder="+7 ___ ___-__-__" value="{{ form.phone }}" onChange="{{ onPhone }}" style="padding:14px;background:#1a1612;border:1px solid #3a3229;border-radius:6px;color:#f1e9dc;font-size:15px">
+        </label>
+        <button type="submit" style="grid-column:1 / -1;padding:18px;background:#e3a64a;color:#14110e;border:none;border-radius:999px;font-weight:700;font-size:15px;cursor:pointer" style-hover="background:#f1e9dc">Отправить заявку</button>
+      </form>
+    </sc-if>
+    <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:40px;border:1px solid #3a3229;border-radius:6px;display:flex;flex-direction:column;gap:16px;align-items:flex-start;align-self:start">
+        <div style="font-family:'Cormorant',serif;font-size:38px">Спасибо, {{ form.name }}!</div>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#c8bead">{{ summary }}</p>
+        <button onClick="{{ reset }}" style="padding:12px 22px;border:1px solid #4a4035;background:transparent;color:#f1e9dc;border-radius:999px;cursor:pointer">Новая заявка</button>
+      </div>
+    </sc-if>
+  </div>
+</section>
+
+<footer style="border-top:1px solid #2b251e">
+  <div style="max-width:1240px;margin:0 auto;padding:48px 24px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;font-size:14px;color:#a89d8c">
+    <span style="font-family:'Cormorant',serif;font-size:24px;color:#f1e9dc">Butovo Grill 1958</span>
+    <span>Бартеневская, 14 · +7 999 111-19-58</span>
+    <span>Академика Глушко, 15 · +7 999 990-19-58</span>
+  </div>
+</footer>
+
+<sc-if value="{{ lightboxOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ close }}" style="position:fixed;inset:0;z-index:50;background:rgba(10,8,6,0.94);display:flex;align-items:center;justify-content:center;padding:24px;box-sizing:border-box">
+    {{ lightboxImg }}
+    <button onClick="{{ prev }}" style="position:fixed;left:16px;top:50%;width:52px;height:52px;border-radius:50%;border:1px solid #4a4035;background:#14110e;color:#f1e9dc;font-size:22px;cursor:pointer">‹</button>
+    <button onClick="{{ next }}" style="position:fixed;right:16px;top:50%;width:52px;height:52px;border-radius:50%;border:1px solid #4a4035;background:#14110e;color:#f1e9dc;font-size:22px;cursor:pointer">›</button>
+    <div style="position:fixed;top:18px;left:0;right:0;display:flex;justify-content:center;gap:16px;align-items:center;font-size:14px;color:#c8bead">
+      <span>{{ current.n }} / {{ total }}</span>
+      <button onClick="{{ close }}" style="padding:8px 16px;border:1px solid #4a4035;background:#14110e;color:#f1e9dc;border-radius:999px;cursor:pointer">Закрыть ✕</button>
+    </div>
+    <button onClick="{{ orderFromLightbox }}" style="position:fixed;bottom:22px;left:50%;transform:translateX(-50%);padding:14px 28px;border:none;border-radius:999px;background:#e3a64a;color:#14110e;font-size:15px;font-weight:700;cursor:pointer" style-hover="background:#f1e9dc">Заказать с этой страницы</button>
+  </div>
+</sc-if>
+
+<sc-if value="{{ hasCart }}" hint-placeholder-val="{{ false }}">
+  <button onClick="{{ openOrder }}" style="position:fixed;right:20px;bottom:20px;z-index:30;padding:16px 24px;border:none;border-radius:999px;background:#e3a64a;color:#14110e;font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,0.45);display:flex;gap:10px;align-items:center" style-hover="background:#f1e9dc">Ваш заказ <span style="min-width:24px;height:24px;border-radius:12px;background:#14110e;color:#e3a64a;font-size:13px;display:flex;align-items:center;justify-content:center">{{ cartCount }}</span></button>
+</sc-if>
+
+<sc-if value="{{ orderOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeOrder }}" style="position:fixed;inset:0;z-index:60;background:rgba(10,8,6,0.85);display:flex;justify-content:flex-end">
+    <div onClick="{{ stop }}" style="width:min(100%,520px);height:100%;overflow-y:auto;background:#1a1612;border-left:1px solid #2b251e;box-sizing:border-box;padding:28px;display:flex;flex-direction:column;gap:24px">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:16px">
+        <h3 style="margin:0;font-family:'Cormorant',serif;font-weight:500;font-size:40px;line-height:1">Заказ</h3>
+        <button onClick="{{ closeOrder }}" style="width:44px;height:44px;border-radius:50%;border:1px solid #4a4035;background:transparent;color:#f1e9dc;font-size:18px;cursor:pointer">✕</button>
+      </div>
+      <sc-if value="{{ orderNotSent }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-direction:column;gap:24px">
+          <sc-if value="{{ hasDraft }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:12px;padding:16px;border:1px solid #3a3229;border-radius:6px;background:#14110e">
+              <div style="display:flex;gap:14px;align-items:center">
+                {{ draftImg }}
+                <div style="display:flex;flex-direction:column;gap:4px">
+                  <span style="font-size:12px;letter-spacing:0.08em;color:#e3a64a;font-weight:600">СТРАНИЦА {{ draftPage }}</span>
+                  <span style="font-size:14px;color:#a89d8c;line-height:1.4">Впишите блюда и количество</span>
+                </div>
+              </div>
+              <textarea value="{{ draftText }}" onChange="{{ onDraft }}" placeholder="Плов — 2, лагман — 1" rows="3" style="padding:12px;background:#1a1612;border:1px solid #3a3229;border-radius:6px;color:#f1e9dc;font-size:15px;font-family:'Manrope',sans-serif;resize:vertical"></textarea>
+              <div style="display:flex;gap:10px;flex-wrap:wrap">
+                <button onClick="{{ addDraft }}" style="padding:11px 20px;border:none;border-radius:999px;background:#e3a64a;color:#14110e;font-size:14px;font-weight:700;cursor:pointer" style-hover="background:#f1e9dc">Добавить в заказ</button>
+                <button onClick="{{ cancelDraft }}" style="padding:11px 20px;border:1px solid #4a4035;border-radius:999px;background:transparent;color:#f1e9dc;font-size:14px;cursor:pointer">Отмена</button>
+              </div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ hasCart }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column">
+              <sc-for list="{{ cart }}" as="c" hint-placeholder-count="1">
+                <div style="padding:14px 0;border-bottom:1px solid #2b251e;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;align-items:start">
+                  <span style="font-size:12px;letter-spacing:0.08em;color:#e3a64a;font-weight:600">СТР. {{ c.page }}</span>
+                  <button onClick="{{ c.remove }}" style="grid-row:span 2;padding:6px 12px;border:1px solid #3a3229;border-radius:999px;background:transparent;color:#a89d8c;font-size:12px;cursor:pointer" style-hover="color:#f1e9dc;border-color:#f1e9dc">Удалить</button>
+                  <span style="font-size:15px;line-height:1.5;color:#f1e9dc;white-space:pre-wrap">{{ c.text }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+          <a href="#menu" onClick="{{ closeOrder }}" style="font-size:14px;color:#e3a64a">+ Добавить с другой страницы меню</a>
+          <form onSubmit="{{ submitOrder }}" style="display:flex;flex-direction:column;gap:16px">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:4px;border:1px solid #3a3229;border-radius:999px">
+              <sc-for list="{{ modeOpts }}" as="m" hint-placeholder-count="2">
+                <button type="button" onClick="{{ m.select }}" style="padding:11px;border:none;border-radius:999px;background:{{ m.bg }};color:{{ m.color }};font-size:14px;font-weight:600;cursor:pointer">{{ m.label }}</button>
+              </sc-for>
+            </div>
+            <label style="display:flex;flex-direction:column;gap:8px;font-size:12px;letter-spacing:0.08em;color:#a89d8c">РЕСТОРАН
+              <select value="{{ ord.branch }}" onChange="{{ onOrdBranch }}" style="padding:14px;background:#14110e;border:1px solid #3a3229;border-radius:6px;color:#f1e9dc;font-size:15px">
+                <sc-for list="{{ branchSelect }}" as="b" hint-placeholder-count="2"><option value="{{ b.v }}">{{ b.label }}</option></sc-for>
+              </select>
+            </label>
+            <sc-if value="{{ isDelivery }}" hint-placeholder-val="{{ false }}">
+              <label style="display:flex;flex-direction:column;gap:8px;font-size:12px;letter-spacing:0.08em;color:#a89d8c">АДРЕС ДОСТАВКИ
+                <input type="text" required="required" placeholder="Улица, дом, квартира" value="{{ ord.address }}" onChange="{{ onOrdAddress }}" style="padding:14px;background:#14110e;border:1px solid #3a3229;border-radius:6px;color:#f1e9dc;font-size:15px">
+              </label>
+            </sc-if>
+            <label style="display:flex;flex-direction:column;gap:8px;font-size:12px;letter-spacing:0.08em;color:#a89d8c">ИМЯ
+              <input type="text" required="required" placeholder="Анна" value="{{ ord.name }}" onChange="{{ onOrdName }}" style="padding:14px;background:#14110e;border:1px solid #3a3229;border-radius:6px;color:#f1e9dc;font-size:15px">
+            </label>
+            <label style="display:flex;flex-direction:column;gap:8px;font-size:12px;letter-spacing:0.08em;color:#a89d8c">ТЕЛЕФОН
+              <input type="tel" required="required" placeholder="+7 ___ ___-__-__" value="{{ ord.phone }}" onChange="{{ onOrdPhone }}" style="padding:14px;background:#14110e;border:1px solid #3a3229;border-radius:6px;color:#f1e9dc;font-size:15px">
+            </label>
+            <button type="submit" disabled="{{ cartEmpty }}" style="padding:18px;background:#e3a64a;color:#14110e;border:none;border-radius:999px;font-weight:700;font-size:15px;cursor:pointer;opacity:{{ submitOpacity }}">Отправить заказ</button>
+            <p style="margin:0;font-size:13px;line-height:1.5;color:#8b8071">Оператор перезвонит, уточнит заказ и сумму.</p>
+          </form>
+        </div>
+      </sc-if>
+      <sc-if value="{{ orderSent }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:16px;align-items:flex-start">
+          <div style="font-family:'Cormorant',serif;font-size:34px">Спасибо, {{ ord.name }}!</div>
+          <p style="margin:0;font-size:16px;line-height:1.6;color:#c8bead">{{ orderSummary }}</p>
+          <button onClick="{{ resetOrder }}" style="padding:12px 22px;border:1px solid #4a4035;background:transparent;color:#f1e9dc;border-radius:999px;cursor:pointer">Готово</button>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;thumbSize&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;small&quot;,&quot;medium&quot;,&quot;large&quot;],&quot;default&quot;:&quot;medium&quot;,&quot;tsType&quot;:&quot;'small'|'medium'|'large'&quot;,&quot;section&quot;:&quot;Меню&quot;}}">
+const IDS = [
+  ['tild3161-3537-4539-b237-343033336164','____2.jpg'],['tild3961-6534-4330-a638-306433363830','____3.jpg'],
+  ['tild6139-3763-4461-b434-323266623137','____4.jpg'],['tild3532-3338-4161-b134-663562636666','____5.jpg'],
+  ['tild3065-6466-4230-b333-363634386564','____6.jpg'],['tild3466-3130-4637-b737-386662363936','____7.jpg'],
+  ['tild3433-3233-4662-b465-333138386166','____8_1.jpg'],['tild3861-3032-4661-b733-666330373830','____9.jpg'],
+  ['tild3465-3464-4064-a464-626635663839','____10.jpg'],['tild3238-6132-4662-a136-353333383830','____11.jpg'],
+  ['tild6431-3436-4936-b237-366334303564','____12.jpg'],['tild3366-6139-4234-a365-643864643831','____13.jpg'],
+  ['tild3832-6639-4334-b833-386466393738','____14_1.jpg'],['tild3363-6238-4266-b965-363133323438','____15_1.jpg'],
+  ['tild6662-3134-4461-a630-663838623930','____16_1.jpg'],['tild6164-3363-4438-b666-303236643133','____17_1.jpg'],
+  ['tild6436-3363-4939-b135-313733636132','____18_1.jpg'],['tild3862-3935-4539-a366-336631383564','____19_1.jpg'],
+  ['tild3038-6266-4732-b164-363138653139','____20_1.jpg'],['tild3163-6265-4465-b761-633832386665','____21_1.jpg'],
+  ['tild6435-6530-4932-a361-376239616139','____22_1.jpg'],['tild3431-3365-4431-b066-396435353232','WhatsApp_Image_2025-.jpeg'],
+  ['tild6465-3637-4562-a336-646535653930','WhatsApp_Image_2025-.jpeg'],['tild6130-3862-4530-a662-613665373531','____25_1.jpg'],
+  ['tild6264-3362-4963-a238-666334313930','____26_1.jpg'],['tild3936-6336-4332-b962-376265333836','____27_1.jpg'],
+  ['tild3934-6465-4330-b634-613366623364','____28.jpg']
+];
+const PLACES = [
+  { short: 'Бартеневская, 14', address: 'ул. Бартеневская, 14', phone: '+7 (999) 111-19-58', tel: 'tel:+79991111958', map: 'https://yandex.ru/maps/-/CDqP4E-l' },
+  { short: 'Академика Глушко, 15', address: 'ул. Академика Глушко, 15', phone: '+7 (999) 990-19-58', tel: 'tel:+79999901958', map: 'https://yandex.ru/maps/-/CDqP44ls' }
+];
+const REVIEWS = [
+  { name: 'Марина Ж.', date: 'апрель 2026', text: 'Манты здесь — настоящий ритуал. Плов рассыпчатый, ароматный, с идеальным балансом специй. И рецептура не меняется — всё на том же высоком уровне.' },
+  { name: 'Ирина З.', date: 'апрель 2026', text: 'Тёплое, уютное место. Шашлык нежный и сочный, отличное обслуживание, есть игровая для детей. Домашняя спокойная атмосфера.' },
+  { name: 'Елена Р.', date: 'сентябрь 2023', text: 'Наивкуснейший плов, самса, хачапури, чебурек. Улыбчивый персонал. Я клиент с 2017 года — ни разу не было нареканий.' },
+  { name: 'Kirill Z.', date: 'апрель 2026', text: 'Знаю это место с 2018 года. Ребята держат марку! Вкусно абсолютно всё. Мой любимый плов.' },
+  { name: 'Вероника', date: 'апрель 2025', text: 'Вместо кетчупа кладут аджику собственного приготовления. А какие манты! А плов! Я здесь постоянный клиент.' },
+  { name: 'Сурен', date: 'ноябрь 2025', text: 'Шаурма одна из лучших в Москве. Но ещё больше нравятся манты — всегда горячие, прямо с пара.' },
+  { name: 'Виталий Ж.', date: 'сентябрь 2026', text: 'Цены, качество еды, чистота — на уровне. Персонал вежливый, в перчатках. Разнообразное меню.' }
+];
+class Component extends DCLogic {
+  state = { open: -1, sent: false, form: { branch: 0, date: '', time: '19:00', guests: '2', name: '', phone: '' },
+    cart: [], orderOpen: false, draft: -1, draftText: '', orderSent: false, ord: { mode: 'pickup', branch: 0, address: '', name: '', phone: '' } };
+  startOrder(i) { this.setState({ open: -1, orderOpen: true, draft: i, draftText: '', orderSent: false }); }
+  setO(k) { return e => { const v = e.target.value; this.setState(s => ({ ord: { ...s.ord, [k]: k === 'branch' ? Number(v) : v } })); }; }
+  orderVals(pages) {
+    const { cart, orderOpen, draft, draftText, orderSent, ord } = this.state;
+    return {
+      cart: cart.map((c, i) => ({ ...c, remove: () => this.setState(s => ({ cart: s.cart.filter((_, j) => j !== i) })) })),
+      hasCart: cart.length > 0, cartCount: cart.length, cartEmpty: cart.length === 0, submitOpacity: cart.length ? 1 : 0.4,
+      orderOpen, orderSent, orderNotSent: !orderSent, ord, isDelivery: ord.mode === 'delivery',
+      hasDraft: draft >= 0, draftPage: draft + 1, draftImg: draft >= 0 ? React.createElement('img', { src: pages[draft].src, alt: 'Страница меню', style: { width: 120, aspectRatio: '1680/1063', objectFit: 'cover', borderRadius: 4, display: 'block', flexShrink: 0 } }) : null, draftText,
+      onDraft: e => this.setState({ draftText: e.target.value }),
+      addDraft: () => { if (!draftText.trim()) return; this.setState(s => ({ cart: [...s.cart, { page: s.draft + 1, text: s.draftText.trim() }], draft: -1, draftText: '' })); },
+      cancelDraft: () => this.setState({ draft: -1, draftText: '' }),
+      openOrder: () => this.setState({ orderOpen: true, orderSent: false }),
+      closeOrder: () => this.setState({ orderOpen: false }),
+      orderFromLightbox: e => { e.stopPropagation(); this.startOrder(this.state.open); },
+      modeOpts: [['pickup', 'Самовывоз'], ['delivery', 'Доставка']].map(([v, label]) => ({ label, bg: ord.mode === v ? '#e3a64a' : 'transparent', color: ord.mode === v ? '#14110e' : '#c8bead', select: () => this.setState(s => ({ ord: { ...s.ord, mode: v } })) })),
+      branchSelect: PLACES.map((p, i) => ({ v: i, label: p.short })),
+      onOrdBranch: this.setO('branch'), onOrdAddress: this.setO('address'), onOrdName: this.setO('name'), onOrdPhone: this.setO('phone'),
+      submitOrder: e => { e.preventDefault(); if (cart.length) this.setState({ orderSent: true }); },
+      resetOrder: () => this.setState({ cart: [], orderOpen: false, orderSent: false, draft: -1 }),
+      orderSummary: `${ord.mode === 'delivery' ? 'Доставка: ' + ord.address : 'Самовывоз: ' + PLACES[ord.branch].short} · позиций: ${cart.length}. Перезвоним на ${ord.phone} для подтверждения.`
+    };
+  }
+  componentDidMount() {
+    this.onKey = e => {
+      if (this.state.open < 0) return;
+      if (e.key === 'Escape') this.setState({ open: -1 });
+      if (e.key === 'ArrowRight') this.step(1);
+      if (e.key === 'ArrowLeft') this.step(-1);
+    };
+    window.addEventListener('keydown', this.onKey);
+  }
+  componentWillUnmount() { window.removeEventListener('keydown', this.onKey); }
+  step(d) { this.setState(s => ({ open: (s.open + d + IDS.length) % IDS.length })); }
+  setF(k) { return e => { const v = e.target.value; this.setState(s => ({ form: { ...s.form, [k]: v } })); }; }
+  renderVals() {
+    const { open, sent, form } = this.state;
+    const pages = IDS.map(([id, f], i) => ({ n: i + 1, src: `https://static.tildacdn.com/${id}/${f}`, open: () => this.setState({ open: i }), order: () => this.startOrder(i) }));
+    const times = [];
+    for (let h = 9; h <= 23; h++) { times.push(`${String(h).padStart(2,'0')}:00`); times.push(`${String(h).padStart(2,'0')}:30`); }
+    const dateLabel = form.date ? new Date(form.date).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' }) : '';
+    const size = this.props.thumbSize ?? 'medium';
+    return {
+      ...this.orderVals(pages),
+      reviews: REVIEWS,
+      startDelivery: () => this.setState(s => ({ orderOpen: true, orderSent: false, draft: -1, ord: { ...s.ord, mode: 'delivery' } })),
+      pages, places: PLACES, total: IDS.length,
+      thumbMin: size === 'small' ? '200px' : size === 'large' ? '380px' : '280px',
+      lightboxImg: open >= 0 ? React.createElement('img', { src: pages[open].src, alt: 'Страница меню', onClick: e => e.stopPropagation(), style: { maxWidth: 'min(100%,1400px)', maxHeight: 'calc(100vh - 120px)', objectFit: 'contain', borderRadius: 4, display: 'block' } }) : null,
+      lightboxOpen: open >= 0, current: open >= 0 ? pages[open] : pages[0],
+      close: () => this.setState({ open: -1 }), stop: e => e.stopPropagation(),
+      prev: e => { e.stopPropagation(); this.step(-1); }, next: e => { e.stopPropagation(); this.step(1); },
+      form, sent, notSent: !sent, times,
+      guestOpts: ['1','2','3','4','5','6','7','8','10+'],
+      branchOpts: PLACES.map((p, i) => ({ short: p.short, bg: form.branch === i ? '#2b231a' : '#1a1612', border: form.branch === i ? '#e3a64a' : '#3a3229', select: () => this.setState(s => ({ form: { ...s.form, branch: i } })) })),
+      onDate: this.setF('date'), onTime: this.setF('time'), onGuests: this.setF('guests'), onName: this.setF('name'), onPhone: this.setF('phone'),
+      submit: e => { e.preventDefault(); this.setState({ sent: true }); },
+      reset: () => this.setState({ sent: false, form: { branch: 0, date: '', time: '19:00', guests: '2', name: '', phone: '' } }),
+      summary: `${PLACES[form.branch].short} · ${dateLabel}, ${form.time} · гостей: ${form.guests}. Перезвоним на ${form.phone}.`
+    };
+  }
+}
+</script>
+</body>
+</html>
